@@ -1,30 +1,29 @@
 In Progress
 ---
+- Top-level div to explain, load sample programs, etc.
 
 High Prio
 ---
-- Fix bug in wiring Accumulator non-repeating units. and modify both test programs accordingly.
+- Create fixed overlaying, mini-map showing which units are active. & acc contents & cycle?
+- Better label/style the debugger panes
+- Use use wires for bus connections
 
 Med
 ---
 - Write test harness for TestPrograms (chain all the tests? make them a view called 'tests'?)
+- Fix bug in wiring Accumulator non-repeating units. and modify both test programs accordingly.
 - Multiplier Unit
 - Divider-Square Rooter
 - Function tables
 
-For historical accuracy
+Low
 ---
 - Accumulator: Sig figs: http://ftp.arl.mil/mike/comphist/46eniac-report/chap4.html (4.1.4)
 - Accumulator: Clear-Corect Switch: http://ftp.arl.mil/mike/comphist/46eniac-report/chap4.html (4.1.2)
 - Accumulator: Selective Clear Switch: http://ftp.arl.mil/mike/comphist/46eniac-report/chap4.html (4.1.5)
 - Accumulator: Branching: http://ftp.arl.mil/mike/comphist/46eniac-report/chap4.html (4.5.3)
 - Add the neon lights to the top of the accumulator
-   - http://logica.ugent.be/centrum/slides/UA_CHOC_Lehmer.pdf
-   - http://placebo.hpi.uni-potsdam.de/webhome/matthieu.schapranow/eniac/modulo/
-- Use use wires for bus connections
 - Accumulator: Interconnections (4.4.1)
 - Accumulator: Static Connections (4.3.3)
 
-Operating Manual:
----
-http://bitsavers.informatik.uni-stuttgart.de/pdf/univOfPennsylvania/eniac/ENIAC_Operating_Manual_Jun46.pdf
+- Bus oscope for debugging?
