@@ -26,5 +26,5 @@ angular.module('myApp.view1', ['ngRoute'])
   $scope.eniac = new Eniac.build({});
 
   TestProgram.setup($scope.eniac);
-  TestProgram.run($scope.eniac, handleTestSuccess, handleTestFailure);
+//  TestProgram.run($scope.eniac, handleTestSuccess, handleTestFailure);
 }]);
