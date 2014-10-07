@@ -1,36 +1,25 @@
-# node-js-getting-started
+# ENIAC Simulator
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+This is a simulator for the [ENIAC](https://en.wikipedia.org/wiki/ENIAC), the first electronic general-purpose computer, built in 1946.
 
-This application support the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+![Two women operating ENIAC](https://upload.wikimedia.org/wikipedia/commons/3/3b/Two_women_operating_ENIAC.gif)
 
-## Running Locally
+## Getting Started
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+Visit a demo at [http://eniac-simulator.herokuapp.com/](http://eniac-simulator.herokuapp.com/).
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
+Or, fire up the ENIAC locally by performing these operations:
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+*  Run ```foreman start```
+*  Visit [http://localhost:5000/](http://localhost:5000/)
 
-## Deploying to Heroku
+Once you set the controls, fire up the machine:
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
+*  Press "INITIAL CLEAR" on the Initiating Unit (left-most unit)
+*  Press "INIT PULSE" on the Initiating Unit
+*  Press "START" on the Initiating Unit
 
-## Documentation
+## References
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+*  [ENIAC Operating Manual](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=ENIAC%20Operating%20Manual)
+*  [Report on THE ENIAC](http://ftp.arl.mil/mike/comphist/46eniac-report/)
