@@ -15,6 +15,7 @@ angular.module('myApp')
       Bus.build({name: "d5", numBits: 11}),
       Bus.build({name: "d6", numBits: 11}),
       Bus.build({name: "d7", numBits: 11}),
+      Bus.build({name: "d8", numBits: 11}),
     ];
   
     this.controlBuses = [
@@ -26,6 +27,7 @@ angular.module('myApp')
       Bus.build({name: "c5", numBits:  1}),
       Bus.build({name: "c6", numBits:  1}),
       Bus.build({name: "c7", numBits:  1}),
+      Bus.build({name: "c8", numBits:  1}),
     ];
    
     this.constant_xmitters = [
