@@ -4,9 +4,11 @@ This is a simulator for the [ENIAC](https://en.wikipedia.org/wiki/ENIAC), the fi
 
 ![Two women operating ENIAC](https://upload.wikimedia.org/wikipedia/commons/3/3b/Two_women_operating_ENIAC.gif)
 
-## Getting Started
+## Demo
 
-Visit a demo at [http://eniac-simulator.herokuapp.com/](http://eniac-simulator.herokuapp.com/).
+The demo is set up to take two user-inputted constants, subtract them, and triple the result. It uses the master programmer, the constant transmitter, and both accumulators to accomplish this task in about 13 "addition times".
+
+You can view it at [http://eniac-simulator.herokuapp.com/](http://eniac-simulator.herokuapp.com/).
 
 Or, fire up the ENIAC locally by performing these operations:
 
@@ -18,6 +20,7 @@ Once you set the controls, fire up the machine:
 *  Press "INITIAL CLEAR" on the Initiating Unit (left-most unit)
 *  Press "INIT PULSE" on the Initiating Unit
 *  Press "START" on the Initiating Unit
+
 
 ## Details
 
@@ -59,6 +62,10 @@ An ENIAC "program" consists of the wiring together of different units, and the u
     * Accumulator 1 receives number, adding to its contents (over digit tray 1)
 
 At the completion of this program, Accumulator 1 holds X+Y.
+
+Even this simple program takes about 50-100 lines of configuring and wiring up: https://github.com/jimlindstrom/eniac-simulator/blob/master/public/test_programs/test_add_two_constants_once.js
+
+To see more complex programs, browse these tests: https://github.com/jimlindstrom/eniac-simulator/tree/master/public/test_programs
 
 ## References
 
