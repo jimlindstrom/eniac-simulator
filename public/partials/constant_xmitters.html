@@ -1,0 +1,84 @@
+<div class="panel-pair" ng-repeat="xmitter in eniac.constant_xmitters">
+  <div class="panel">
+    <div class="subpanel leds">
+      {{xmitter.name}}
+      <br />
+    </div>
+   
+    <div class="subpanel data-buses" ng-include src="'partials/data_buses.html'">
+    </div>
+
+    <div class="subpanel panel-controls">
+      <div style="width:100%; text-align: center; padding-bottom:4px;"><!-- FIXME -->
+        <div class="plug control-8">{{xmitter.outPort.busName || "--"}}</div>
+      </div>
+
+      <div class="control-row" ng-repeat="xmitter_ctrl_pair_arr in xmitter.xmitter_ctrl_pair_arrays">
+        <div class="control-10 xmitter-ctrl-pair {{xmitter_ctrl_pair.active ? 'active-ctrl' : ''}}" ng-repeat="xmitter_ctrl_pair in xmitter_ctrl_pair_arr">
+          <select ng-model="xmitter_ctrl_pair.top_opt" ng-options="option for option in xmitter_ctrl_pair.top_opts"></select>
+          <br />
+          <select ng-model="xmitter_ctrl_pair.bot_opt" ng-options="option for option in xmitter_ctrl_pair.bot_opts"></select>
+        </div>
+        <div class="control-row-spacer">
+        </div>
+      </div>
+    
+      <div class="control-row">
+        <div class="control-io-row" ng-repeat="xmitter_ctrl_pair_arr in xmitter.xmitter_ctrl_pair_arrays">
+          <div class="control-10 control-io-pair" ng-repeat="xmitter_ctrl_pair in xmitter_ctrl_pair_arr">
+            <div class="two-control-io-left"><div class="htfix"></div><div class="circled-content">{{xmitter_ctrl_pair.inPort.busName || "&bull;"}}</div></div>
+            <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content">{{xmitter_ctrl_pair.outPort.busName || "&bull;"}}</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
+    </div>
+
+  </div>
+  <div class="panel">
+    <div class="subpanel leds">
+      <div style="width:100%;">
+        <span style="display:inline-block; width:32%; text-align:right;">{{xmitter.getValue(0, 'L')}}</span>
+        <span style="display:inline-block; width:32%; text-align:right;">{{xmitter.getValue(0, 'LR')}}</span>
+        <span style="display:inline-block; width:32%; text-align:right;">{{xmitter.getValue(0, 'R')}}<span>
+      </div>
+      <div style="width:100%;">
+        <span style="display:inline-block; width:32%; text-align:right;">{{xmitter.getValue(1, 'L')}}</span>
+        <span style="display:inline-block; width:32%; text-align:right;">{{xmitter.getValue(1, 'LR')}}</span>
+        <span style="display:inline-block; width:32%; text-align:right;">{{xmitter.getValue(1, 'R')}}</span>
+      </div>
+    </div>
+   
+    <div class="subpanel data-buses" ng-include src="'partials/data_buses.html'">
+    </div>
+     
+    <div class="subpanel panel-controls">
+      <div class="control-row" ng-repeat="pm_arr in xmitter.pm_arrs" style="text-align: center;">
+        <div class="control-10 xmitter-knob {{pm.active ? 'active-ctrl' : ''}}" ng-repeat="pm in pm_arr">
+          <select ng-model="pm.opt" ng-options="option for option in pm.opts"></select>
+        </div>
+      </div>
+     
+      <div class="control-row" ng-repeat="number_dial_arr in xmitter.number_dial_arrs">
+        <div class="control-10 xmitter-knob {{number_dial.active ? 'active-ctrl' : ''}}" ng-repeat="number_dial in number_dial_arr">
+          <select ng-model="number_dial.opt" ng-options="option for option in number_dial.opts"></select>
+        </div>
+      </div>
+    </div>
+     
+    <div class="subpanel control-buses">
+      <div class="control-bus"></div>
+      <div class="control-bus"></div>
+      <div class="control-bus"></div>
+      <div class="control-bus"></div>
+      <div class="control-bus"></div>
+      <div class="control-bus"></div>
+      <div class="control-bus"></div>
+      <div class="control-bus"></div>
+      <div class="control-bus"></div>
+    </div>
+
+  </div>
+</div>

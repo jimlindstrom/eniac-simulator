@@ -1,7 +1,9 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.1.2",
-  "description": "A sample Node.js app using Express 4",
+  "name": "eniac-simulator",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A simulator for the ENIAC machine",
+  "repository": "https://github.com/jimlindstrom/eniac-simulator",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -9,17 +11,10 @@
   "dependencies": {
     "express": "~4.9.x"
   },
+  "devDependencies": {
+  },
   "engines": {
     "node": "0.10.x"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
-  },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
   "license": "MIT"
 }

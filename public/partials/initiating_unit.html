@@ -1,0 +1,183 @@
+<div class="panel">
+  <div class="subpanel leds">
+    Initiating Unit<br />
+  </div>
+
+  <div class="subpanel data-buses-and-panel-controls">
+    <div class="initiating-unit-row1">
+      <div class="eniac-badge">
+        <h2>THE ENIAC</h2>
+        <h3>Electronic Numerical Integrator and Computer</h3>
+        <h4>Developed, Designed and Constructed</h4>
+        <h4>By The</h4>
+        <h4>MOORE SCHOOL of ELECTRICAL ENGINEERING</h4>
+        <h4>OF THE</h4>
+        <h4>UNIVERSITY OF PENNSYLVANIA</h4>
+        <h4>1944</h4>
+      </div>
+    </div>
+    <div class="initiating-unit-row2">
+      <div class="analog-circle-gauge">
+        <svg width="65" height="65">
+          <path d="M7,28 A8,5 0 0,1 58,28" fill="none" stroke="gray" stroke-width="1" />
+          <path d="M12,34 A10,5 0 0,1 54,34" fill="none" stroke="gray" stroke-width="1" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="4,24 13,37" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="15,13.5 22,29.5" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="32.5,9 32.5,26" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="50,13.5 43.5,29.5" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="61,24 53,36" />
+          <polyline fill="black" stroke="black" stroke-width="1" points="31.5,58 13,23 33.5,57.2" />
+        </svg>
+      </div>
+      <div class="analog-circle-gauge">
+        <svg width="65" height="65">
+          <path d="M7,28 A8,5 0 0,1 58,28" fill="none" stroke="gray" stroke-width="1" />
+          <path d="M12,34 A10,5 0 0,1 54,34" fill="none" stroke="gray" stroke-width="1" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="4,24 13,37" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="15,13.5 22,29.5" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="32.5,9 32.5,26" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="50,13.5 43.5,29.5" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="61,24 53,36" />
+          <polyline fill="black" stroke="black" stroke-width="1" points="31.5,58 13,23 33.5,57.2" />
+        </svg>
+      </div>
+      <div class="analog-circle-gauge">
+        <svg width="65" height="65">
+          <path d="M7,28 A8,5 0 0,1 58,28" fill="none" stroke="gray" stroke-width="1" />
+          <path d="M12,34 A10,5 0 0,1 54,34" fill="none" stroke="gray" stroke-width="1" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="4,24 13,37" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="15,13.5 22,29.5" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="32.5,9 32.5,26" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="50,13.5 43.5,29.5" />
+          <polyline fill="none" stroke="gray" stroke-width="1" points="61,24 53,36" />
+          <polyline fill="black" stroke="black" stroke-width="1" points="31.5,58 13,23 33.5,57.2" />
+        </svg>
+      </div>
+    </div>
+    <div class="initiating-unit-row3">
+      <div class="square-control"></div>
+      <div class="square-control"></div>
+      <div class="square-control"></div>
+    </div>
+    <div class="initiating-unit-row4">
+      <div class="eniac-small-badge">
+      </div>
+    </div>
+    <div class="initiating-unit-row5">
+      <div class="control-3-and-3"><button class="square-ctrl-btn" ng-click="eniac.start();">START</button></div>
+      <div class="control-3-and-3"></div>
+      <div class="control-3-and-3"><button class="square-ctrl-btn" ng-click="eniac.stop();">STOP</button></div>
+      <div class="control-3-and-3"><button class="square-ctrl-btn">READ START</button></div>
+      <div class="control-3-and-3"></div>
+      <div class="control-3-and-3"><button class="square-ctrl-btn" ng-click="eniac.init_pulse();">INIT PULSE</button></div>
+    </div>
+    <div class="initiating-unit-row6">
+      <div class="control-3-and-3"><div class="small-circle-led {{eniac.initiatingUnit.active ? 'led-black' : 'led-amber'}}"></div></div>
+      <div class="control-3-and-3"></div>
+      <div class="control-3-and-3"><div class="small-circle-led {{eniac.initiatingUnit.active ? 'led-green' : 'led-black'}}"></div></div>
+      <div class="control-3-and-3">
+        <!-- 1 dummy -->
+        <div class="control-io">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+      <div class="control-3-and-3"></div>
+      <div class="control-3-and-3">
+        <!-- 1 dummy -->
+        <div class="control-io">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="initiating-unit-row7">
+      <div class="control-3-and-3"><button class="square-ctrl-btn" ng-click="eniac.clear();">INITIAL CLEAR</button></div>
+      <div class="control-3-and-3"><div class="square-ctrl">DC POWER SUPPLIES</div></div>
+      <div class="control-3-and-3"><div class="square-ctrl">DOOR SWITCH SHORT</div></div>
+      <div class="control-3-and-3"><div class="square-ctrl">READER<br /><br/>I'LOCK<br/>IN&nbsp;&nbsp;&nbsp;OUT</div></div>
+      <div class="control-3-and-3"><div class="square-ctrl">PRINTER<br /><br/><br />IN&nbsp;&nbsp;&nbsp;OUT</div></div>
+      <div class="control-3-and-3"><div class="square-ctrl">INITIATING PULSE<br /><br />OUTPUT</div></div>
+    </div>
+
+    <div class="initiating-unit-row8">
+      <div class="control-3-and-3">
+        <!-- 2 dummies -->
+        <div class="control-io">
+          <div class="two-control-io-left "><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+          <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+      <div class="control-3-and-3">
+        <!-- 2 dummies -->
+        <div class="control-io">
+          <div class="two-control-io-left "><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+          <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+      <div class="control-3-and-3">
+        <!-- 2 dummies -->
+        <div class="control-io">
+          <div class="two-control-io-left "><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+          <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+      <div class="control-3-and-3">
+        <!-- 1 dummy -->
+        <div class="control-io">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+      <div class="control-3-and-3">
+        <!-- empty -->
+      </div>
+      <div class="control-3-and-3">
+        <!-- empty -->
+      </div>
+    </div>
+    <div class="initiating-unit-row9">
+      <div class="control-3-and-3">
+        <!-- 2 real ones -->
+        <div class="control-io">
+          <div class="two-control-io-left "><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+          <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+      <div class="control-3-and-3">
+        <!-- 2 dummies -->
+        <div class="control-io">
+          <div class="two-control-io-left "><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+          <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+      <div class="control-3-and-3">
+        <!-- 2 dummies -->
+        <div class="control-io">
+          <div class="two-control-io-left "><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+          <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+      <div class="control-3-and-3">
+        <!-- 2 dummies -->
+        <div class="control-io">
+          <div class="two-control-io-left "><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+          <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+      <div class="control-3-and-3">
+        <!-- 2 dummies -->
+        <div class="control-io">
+          <div class="two-control-io-left "><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+          <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+      <div class="control-3-and-3">
+        <div class="control-io">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.initiatingUnit.initPulse.busName || "&bull;"}}</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
+  </div>
+
+</div>

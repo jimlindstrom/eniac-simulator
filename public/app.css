@@ -1,0 +1,662 @@
+/******************************************************************************
+ * ENIAC CONTAINER
+ ******************************************************************************/
+
+.eniac {
+  display: inline-block;
+  width: 5000px;
+  margin: 5px;
+}
+
+.eniac .partial-container {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+/******************************************************************************
+ * UNIT PANELS
+ ******************************************************************************/
+
+.panel {
+  vertical-align: top;
+  display: inline-block;
+  width: 390px;
+  margin: 0;
+  border: none;
+  background-color: #d9d9d9;
+  padding: 0;
+  font-size: 10px;
+}
+
+.panel select {
+  font-size: 10px;
+}
+
+.subpanel {
+  background-color: #f9f9f9;
+  margin: 5px;
+}
+
+.leds {
+  height: 270px;
+  padding: 4px;
+  background-color: #555;
+  color: #2a0;
+}
+
+.data-buses {
+  height: 225px;
+}
+
+.data-buses-and-panel-controls {
+  height: 500px;
+  padding: 4px;
+}
+
+.panel-controls {
+  height: 270px;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.control-buses {
+  height: 225px;
+}
+
+/******************************************************************************
+ * BUSES
+ ******************************************************************************/
+
+.data-bus, .control-bus {
+  background-color: #999;
+  margin-bottom: 2px;
+  height: 23px;
+  text-align: center;
+  width: 100%;
+}
+
+/******************************************************************************
+ * DATA BUS CONNECTOR
+ ******************************************************************************/
+
+.data-bus .horiz-connector {
+  display: inline-block;
+  border: 1px solid #444;
+  height: 19px;
+  margin-top: 1px;
+  width: 50px;
+  font-size: 0;
+}
+
+.data-bus .horiz-connector .top-row {
+  height: 6px;
+  width: 100%;
+}
+
+.data-bus .horiz-connector .mid-row {
+  height: 7px;
+  width: 100%;
+}
+
+.data-bus .horiz-connector .bot-row {
+  height: 6px;
+  width: 100%;
+}
+
+.data-bus .horiz-connector .pin {
+  display: inline-block;
+  background-color: black;
+  width: 4px;
+  height: 3px;
+}
+
+.data-bus .horiz-connector .top-row .pin {
+  margin: 3px 2px 0 2px;
+}
+.data-bus .horiz-connector .bot-row .pin {
+  margin: 0px 2px 2px 2px;
+}
+
+.data-bus .horiz-connector .pin:nth-child(3) {
+  margin-right: 3px;
+}
+.data-bus .horiz-connector .pin:nth-child(4) {
+  margin-left: 3px;
+}
+
+.data-bus .horiz-connector .dit {
+  display: inline-block;
+  vertical-align: top;
+  background-color: #666;
+  width: 2px;
+  height: 3px;
+  margin-top: 2px;
+}
+
+.data-bus .horiz-connector .dat {
+  display: inline-block;
+  vertical-align: top;
+  background-color: #666;
+  margin: 1px 15px 0 15px;
+  width: 2px;
+  height: 5px;
+}
+
+/******************************************************************************
+ * CONTROL BUS CONNECTOR
+ ******************************************************************************/
+
+.control-bus .one-control-io {
+  margin: 4px 1px 0 1px;
+}
+
+
+/******************************************************************************
+ * PANEL-CONTROLS ROW
+ ******************************************************************************/
+
+.panel-controls .control-row {
+  height: 67px;
+  font-size: 0; /* to make sure whitespace between divs doesn't cause gaps */
+}
+.panel-controls .control-row * {
+  font-size: 10px;
+}
+
+/******************************************************************************
+ * CONTROL CONTAINERS (ROWS)
+ ******************************************************************************/
+
+.control-row {
+  vertical-align: top;
+  text-align: center;
+  width: 100%;
+}
+.control-10 {
+  width: 35px;
+  overflow: hidden;
+}
+.control-8 {
+  width: 43px;
+  overflow: hidden;
+}
+
+/******************************************************************************
+ * XMITTER CTRL PAIR
+ ******************************************************************************/
+
+.xmitter-ctrl-pair {
+  display: inline-block;
+  border: 1px solid black;
+  vertical-align: middle;
+  height: 42px;
+  line-height: 20px;
+}
+
+.xmitter-ctrl-pair input {
+  display: block;
+  width: 28px;
+}
+
+.xmitter-knob {
+  border: 1px solid black;
+  display: inline-block;
+  height: 25px;
+  padding-top: 10px;
+}
+
+/******************************************************************************
+ * CONTROL I/O PAIR
+ ******************************************************************************/
+
+.control-io-pair {
+  display: inline-block;
+  border: 1px solid;
+  border-color: transparent;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.control-io {
+  display: inline-block;
+  border: 1px solid;
+  border-color: transparent;
+  vertical-align: middle;
+  text-align: center;
+}
+.control-3-and-3 .control-io, .control-3-centered .control-io, .control-5 .control-io {
+  width: 100%;
+}
+
+.skinny-control-io {
+  vertical-align: top;
+  display: inline-block;
+  border: none;
+  width: 52px;
+  margin: 0 1px;
+  text-align: center;
+}
+
+.one-control-io,
+.two-control-io-left,
+.two-control-io-right {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width:  11px;
+  height: 11px;
+  padding: 1px;
+  border-radius: 50%;
+  border: 1px solid black;
+  position: relative;
+}
+
+.cicled-htfix {
+  margin-top: 100%;
+}
+.circled-content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: -8px;
+}
+
+/******************************************************************************
+ * FIXME: MISC
+ ******************************************************************************/
+
+.plug {
+  display: inline-block;
+  border: 1px solid black;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 12px;
+}
+
+.inter-plug, .digital-in, .digital-out, .panel-label, .dial-and-switch, .sig-figs {
+  height: 65px; /*100%;*/
+}
+
+.dial-only {
+  height: 25px; /*100%;*/
+  padding-top: 10px;
+}
+
+.dial-and-switch .lbl {
+  float: left;
+  margin: 4px 2px 0 4px;
+}
+.dial-and-switch .switch {
+  float: right;
+  margin: 4px 4px 0 2px;
+}
+.dial-and-switch .switch input {
+  padding: 0;
+  margin: 0 0 0 2px;
+}
+.dial-and-switch .dial {
+  margin-top: 30px;
+}
+
+/******************************************************************************
+ * Accumulator: Significant Figures Control
+ ******************************************************************************/
+.sig-figs .lbl {
+  margin-top: 2px;
+}
+.sig-figs .switch {
+  float: right;
+  margin: 4px 4px 0 2px;
+}
+.sig-figs .switch input {
+  padding: 0;
+  margin: 0 0 0 2px;
+}
+.sig-figs .dial {
+  margin-top: 30px;
+}
+
+/******************************************************************************
+ * Controls that are activ
+ ******************************************************************************/
+
+.active-ctrl {
+  background-color: #9c9;
+}
+
+/******************************************************************************
+ * Cycling unit LEDs
+ ******************************************************************************/
+
+.cycling-unit-row1 {
+  width: 100%;
+  height: 117px;
+}
+
+.cycling-unit-row2 {
+  width: 100%;
+  height: 140px;
+}
+
+.cycling-unit-row3 {
+  width: 100%;
+  height: 80px;
+}
+
+.cycling-unit-row4 {
+  width: 100%;
+  height: 52px;
+}
+
+.cycling-unit-row5 {
+  width: 100%;
+  height: 33px;
+}
+
+.cycling-unit-oscope {
+  width: 110px;
+  height: 110px;
+  margin: 40px auto 2% auto;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.cycling-unit-timing-chart {
+  width: 290px;
+  height: 120px;
+  margin: 10px auto 0 auto;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.cycling-unit-timing-chart h2 {
+  font-size: 0.7em;
+  margin: 0;
+}
+.cycling-unit-timing-chart .timing-row {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 8px;
+}
+.cycling-unit-timing-chart .timing-row .line-name {
+  width: 20px;
+  text-align: right;
+  display: inline-block;
+}
+.cycling-unit-timing-chart .timing-row .timing-cell {
+  width: 3.25px;
+  height: 5px;
+  display: inline-block;
+}
+.cycling-unit-timing-chart .timing-row .level-high {
+  border-top: solid 1px black;
+}
+.cycling-unit-timing-chart .timing-row .level-low {
+  border-bottom: solid 1px black;
+}
+.cycling-unit-timing-chart .timing-row .edge {
+  border-left: solid 1px black;
+}
+.cycling-unit-timing-chart .timing-row .no-edge {
+  border-left: solid 1px transparent;
+}
+.cycling-unit-timing-chart .timing-row .cur-subcycle {
+  border-left: solid 1px red;
+}
+
+.control-3-centered {
+  display: inline-block;
+  width: 43px;
+  margin: 10px 26px 4px 26px;
+  vertical-align: top;
+}
+.control-3-centered:nth-child(1) {
+  margin-left: 70px;
+}
+
+.control-3-centered .square-control {
+  display: inline-block;
+  width: 43px;
+  height: 43px;
+  border: 1px solid black;
+  font-size: 8px;
+  text-align: center;
+}
+
+.control-3-centered button  {
+  width: 100%;
+  height: 43px;
+  font-size: 8px;
+  text-align: center;
+}
+
+/******************************************************************************
+ * Initiating unit LEDs
+ ******************************************************************************/
+
+.led-black {
+  background-color: #666;
+}
+.led-amber {
+  background-color: #a82;
+}
+.led-green {
+  background-color: #2a2;
+}
+
+/******************************************************************************
+ * Initiating unit: front panel 
+ ******************************************************************************/
+
+.initiating-unit-row1 {
+  height: 111px;
+  width: 100%;
+}
+.initiating-unit-row2 {
+  height: 80px;
+  width: 100%;
+}
+.initiating-unit-row3{
+  height: 50px;
+  width: 100%;
+}
+.initiating-unit-row4 {
+  height: 64px;
+  width: 100%;
+}
+.initiating-unit-row5 {
+  height: 53px;
+  width: 100%;
+}
+.initiating-unit-row6 {
+  height: 28px;
+  width: 100%;
+}
+.initiating-unit-row7 {
+  height: 53px;
+  width: 100%;
+}
+.initiating-unit-row8 {
+  height: 18px;
+  width: 100%;
+}
+.initiating-unit-row9 {
+  height: 18px;
+  width: 100%;
+}
+
+.eniac-badge {
+  border: 1px solid black;
+  width: 200px;
+  height: 93%;
+  margin: 2% auto 5% auto;
+  text-align: center;
+}
+
+.eniac-badge h2 {
+  margin: 0.2em 0 0 0;
+  font-size: 1.3em;
+}
+.eniac-badge h3 {
+  margin: 0.1em 0 1.2em 0;
+  font-size: 0.8em;
+  font-variant: small-caps;
+}
+.eniac-badge h4 {
+  margin: 0;
+  font-size: 0.7em;
+  font-variant: small-caps;
+}
+
+.eniac-small-badge {
+  border: 1px solid black;
+  width: 200px;
+  height: 92%;
+  margin: auto auto;
+  text-align: center;
+}
+
+.analog-circle-gauge {
+  display: inline-block;
+  margin: 5px 27px 5px 27px;
+  width: 65px;
+  height: 65px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.initiating-unit-row3 .square-control {
+  display: inline-block;
+  margin: 10px 42px 1px 42px;
+  width: 35px;
+  height: 35px;
+  border: 1px solid black;
+}
+
+.control-3-and-3 {
+  display: inline-block;
+  width: 43px;
+  margin: 4px 5px 4px 5px;
+  vertical-align: top;
+}
+.control-3-and-3:nth-child(1) {
+  margin-left: 12px;
+}
+.control-3-and-3:nth-child(4) {
+  margin-left: 18px;
+}
+
+.control-3-and-3 .square-ctrl {
+  border: 1px solid black;
+  width: 100%;
+  height: 43px;
+  font-size: 8px;
+  text-align: center;
+}
+
+.control-3-and-3 button  {
+  width: 100%;
+  height: 43px;
+  font-size: 8px;
+  text-align: center;
+}
+
+.control-3-and-3 .small-circle-led {
+  height: 14px;
+  width: 14px;
+  border: 1px solid black;
+  margin: auto auto;
+  border-radius: 50%;
+}
+
+/******************************************************************************
+ * MASTER PROGRAMMER
+ ******************************************************************************/
+
+.master-pgmr-row1 {
+  height: 54px;
+  width: 100%;
+  text-align: center;
+}
+
+.master-pgmr-row2,
+.master-pgmr-row3,
+.master-pgmr-row5 {
+  height: 38px;
+  width: 100%;
+  text-align: center;
+}
+
+.master-pgmr-row4 {
+  height: 18px;
+  width: 100%;
+  text-align: center;
+}
+
+.master-pgmr-row6 {
+  height: 38px;
+  width: 100%;
+  text-align: center;
+}
+
+.master-pgmr-row7 {
+  text-align: center;
+}
+
+.master-pgmr-row1 .ctrl {
+  display: inline-block;
+  border: 1px solid black;
+  width: 50px;
+  height: 40px;
+  vertical-align: middle;
+  margin: 0 10px;
+  font-size: 8px;
+}
+
+.master-programmer-subpanel .control-10 {
+  display: inline-block;
+  overflow: hidden;
+  height: 35px;
+  width: 35px;
+  border: 1px solid transparent;
+  margin: 0;
+}
+
+.master-programmer-subpanel .control-5 {
+  display: inline-block;
+  overflow: hidden;
+  width: 70px;
+  margin: 3px 0px 2px 0px;
+  border: 1px solid transparent;
+}
+
+.master-programmer-subpanel .square-knob {
+  height: 35px;
+  border: 1px solid black;
+}
+
+.master-pgmr-decade-table {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.master-pgmr-decade-table .cell {
+  display: inline-block;
+  width: 18px;
+  text-align: center;
+}
+.master-pgmr-stepper-table {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.master-pgmr-stepper-table .cell {
+  display: inline-block;
+  width: 18px;
+  text-align: center;
+}

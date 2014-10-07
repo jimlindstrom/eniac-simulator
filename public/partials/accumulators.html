@@ -1,0 +1,99 @@
+<div class="panel" ng-repeat="acc in eniac.accumulators">
+  <div class="subpanel leds">
+    {{acc.name}}: {{acc.curValStr()}}
+
+    <div class="master-pgmr-decade-table">
+      <div class="row">
+        <div class="cell" ng-repeat="idx in [0,1,2,3,4,5,6,7,8,9,10]">
+          {{acc.counters[idx].val}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="cell" ng-repeat="idx in [0,1,2,3,4,5,6,7,8,9,10]">
+          {{(idx < 1) ? 'PM' : 10-idx}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+   
+  <div class="subpanel data-buses" ng-include src="'partials/data_buses.html'">
+  </div>
+
+  <div class="subpanel panel-controls">
+    <div class="control-row">
+      <div class="control-8 plug inter-plug">inter<br/>con</br>plug<br/>L1</div>
+      <div class="control-10 plug digital-in" ng-repeat="digitalInput in acc.digitalInputs">
+        <div class="plug-label">{{digitalInput.name}}</div>
+        <div class="plug-bus">{{digitalInput.busName || "--"}}</div>
+      </div>
+      <div class="control-10 plug digital-out" ng-repeat="digitalOutput in acc.digitalOutputs">
+        <div class=plug-label">{{digitalOutput.name}}</div>
+        <div class="plug-bus">{{digitalOutput.busName || "--"}}</div>
+      </div>
+      <div class="control-8 plug inter-plug">inter<br/>con</br>plug<br/>R1</div>
+    </div>
+  
+    <div class="control-row">
+      <div class="control-8 plug inter-plug">inter<br/>con<br/>plug<br/>L2</div>
+      <div class="control-8 plug panel-label">Off / On</div>
+      <div class="control-8 plug dial-and-switch {{dialAndSwitch.active ? 'active-ctrl' : ''}}" ng-repeat="dialAndSwitch in acc.nonRepeatProgControls">
+        <div class="lbl">{{dialAndSwitch.idx}}</div>
+        <div class="switch">c<input type="checkbox"></input></div>
+        <div class="dial">
+          <select ng-model="dialAndSwitch.operation" ng-options="option for option in acc.operationOpts"></select>
+        </div>
+      </div>
+  
+      <div class="control-8 plug sig-figs">
+        <div class="switch">sc<input type="checkbox"></input></div>
+        <div class="dial">
+          <select ng-model="acc.sigFiguresCtrl.sigFigs" ng-options="option for option in acc.sigFigureOpts"></select>
+        </div>
+        <div class="lbl">Sig. Fig.</div>
+      </div>
+      <div class="control-8 plug inter-plug">inter<br/>con</br>plug<br/>R2</div>
+    </div>
+  
+    <div class="control-row">
+      <div class="control-8 plug dial-and-switch {{dialAndSwitch.active ? 'active-ctrl' : ''}}" ng-repeat="dialAndSwitch in acc.repeatProgControls">
+        <div class="lbl">{{dialAndSwitch.idx}}</div>
+        <div class="switch">c<input type="checkbox"></input></div>
+        <div class="dial">
+          <select ng-model="dialAndSwitch.operation" ng-options="option for option in acc.operationOpts"></select>
+        </div>
+      </div>
+    </div>
+  
+    <div class="control-row">
+      <div class="control-subrow">
+        <div class="control-8 plug dial-only {{dial.active ? 'active-ctrl' : ''}}" ng-repeat="dial in acc.repeatProgControls">
+          <div class="dial">
+            <select ng-model="dial.repeat" ng-options="option for option in acc.repeatOpts"></select>
+          </div>
+        </div>
+      </div>
+    
+      <div class="control-subrow">
+        <div class="control-8"></div>
+        <div class="control-8"></div>
+        <div class="control-8 control-io" ng-repeat="ctrl in acc.nonRepeatProgControls">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{ctrl.inPort.busName || "&bull;"}}</div></div>
+        </div>
+        <div class="control-8"></div>
+        <div class="control-8"></div>
+      </div>
+    
+      <div class="control-subrow">
+        <div class="control-8 control-io-pair" ng-repeat="ctrl in acc.repeatProgControls">
+          <div class="control-8 two-control-io-left"><div class="htfix"></div><div class="circled-content">{{ctrl.inPort.busName || "&bull;"}}</div></div>
+          <div class="control-8 two-control-io-right"><div class="htfix"></div><div class="circled-content">{{ctrl.outPort.busName || "&bull;"}}</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
+  </div>
+
+</div>

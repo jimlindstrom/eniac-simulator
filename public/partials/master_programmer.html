@@ -1,0 +1,192 @@
+<div class="panel-pair">
+  <div class="panel">
+    <div class="subpanel leds">
+      Master Programmer
+
+      <div class="master-pgmr-decade-table">
+        <div class="row">
+          <div class="cell" ng-repeat="idx in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]">
+            {{eniac.masterProgrammer.decades[idx].value}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="cell" ng-repeat="idx in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]">
+            {{idx}}
+          </div>
+        </div>
+      </div>
+
+      <div class="master-pgmr-stepper-table">
+        <div class="row">
+          <div class="cell" ng-repeat="key in ['A','B','C','D','E','F','G','H','J','K']">
+            {{eniac.masterProgrammer.steppers[key].stage}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="cell" ng-repeat="key in ['A','B','C','D','E','F','G','H','J','K']">
+            {{key}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+   
+    <div class="subpanel data-buses-and-panel-controls master-programmer-subpanel">
+      <div class="master-pgmr-row1">
+        <div class="ctrl">Heaters<br />On Off</div>
+        <div class="ctrl">Master Programmer Panel 1</div>
+      </div>
+
+      <div class="master-pgmr-row2">
+        <div class="control-10 {{associator ? 'square-knob' : ''}}" 
+             ng-repeat="associator in eniac.masterProgrammer.decade_associators_by_decade_col.slice(0,10) track by $index">
+          <select ng-if="associator"
+                  ng-model="associator.opt" 
+                  ng-options="option for option in associator.opts"></select>
+        </div>
+      </div>
+
+      <div class="master-pgmr-row3" ng-repeat="stage in [0,1,2]">
+        <div class="control-10 square-knob" ng-repeat="decade in eniac.masterProgrammer.decades.slice(0,10)">
+          {{decade.stages[stage].name}}<br />
+          <select ng-model="decade.stages[stage].opt" 
+                  ng-options="option for option in decade.stages[stage].opts"></select>
+        </div>
+      </div>
+
+      <div class="master-pgmr-row4">
+      </div>
+
+      <div class="master-pgmr-row5" ng-repeat="stage in [3,4,5]">
+        <div class="control-10 square-knob" ng-repeat="decade in eniac.masterProgrammer.decades.slice(0,10)">
+          {{decade.stages[stage].name}}<br />
+          <select ng-model="decade.stages[stage].opt" 
+                  ng-options="option for option in decade.stages[stage].opts"></select>
+        </div>
+      </div>
+
+      <div class="master-pgmr-row6">
+        <div class="control-5 square-knob" ng-repeat="stepper_key in ['A', 'B', 'C', 'D', 'E']">
+          {{stepper_key}}<br />
+          <select ng-model="eniac.masterProgrammer.steppers[stepper_key].clear_switch.opt"
+                  ng-options="option for option in eniac.masterProgrammer.steppers[stepper_key].clear_switch.opts"></select>
+        </div>
+      </div>
+
+      <div class="master-pgmr-row4">
+      </div>
+
+      <div class="master-pgmr-row7">
+        <div class="control-10 control-io" ng-repeat="decade in eniac.masterProgrammer.decades.slice(0,10)">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{decade.direct_input.busName || "&bull;"}}</div></div>
+        </div>
+      </div>
+      <div class="master-pgmr-row7">
+        <div class="control-5 control-io" ng-repeat="stepper_key in ['A', 'B', 'C', 'D', 'E']">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].direct_input.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_input.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].clear_direct_input.busName || "&bull;"}}</div></div>
+        </div>
+      </div>
+      <div class="master-pgmr-row7">
+        <div class="control-5 control-io" ng-repeat="stepper_key in ['A', 'B', 'C', 'D', 'E']">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_outputs[0].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_outputs[1].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_outputs[2].busName || "&bull;"}}</div></div>
+        </div>
+      </div>
+      <div class="master-pgmr-row7">
+        <div class="control-5 control-io" ng-repeat="stepper_key in ['A', 'B', 'C', 'D', 'E']">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_outputs[3].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_outputs[4].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_outputs[5].busName || "&bull;"}}</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
+    </div>
+
+  </div>
+  <div class="panel">
+    <div class="subpanel leds">
+    </div>
+   
+    <div class="subpanel data-buses-and-panel-controls master-programmer-subpanel">
+      <div class="master-pgmr-row1">
+        <div class="ctrl">Heaters<br />On Off</div>
+        <div class="ctrl">Master Programmer Panel 2</div>
+      </div>
+
+      <div class="master-pgmr-row2">
+        <div class="control-10 {{associator ? 'square-knob' : ''}}" 
+             ng-repeat="associator in eniac.masterProgrammer.decade_associators_by_decade_col.slice(10,20) track by $index">
+          <select ng-if="associator"
+                  ng-model="associator.opt" 
+                  ng-options="option for option in associator.opts"></select>
+        </div>
+      </div>
+
+      <div class="master-pgmr-row3" ng-repeat="stage in [0,1,2]">
+        <div class="control-10 square-knob" ng-repeat="decade in eniac.masterProgrammer.decades.slice(10,20)">
+          {{decade.stages[stage].name}}<br />
+          <select ng-model="decade.stages[stage].opt" 
+                  ng-options="option for option in decade.stages[stage].opts"></select>
+        </div>
+      </div>
+
+      <div class="master-pgmr-row4">
+      </div>
+
+      <div class="master-pgmr-row5" ng-repeat="stage in [3,4,5]">
+        <div class="control-10 square-knob" ng-repeat="decade in eniac.masterProgrammer.decades.slice(10,20)">
+          {{decade.stages[stage].name}}<br />
+          <select ng-model="decade.stages[stage].opt" 
+                  ng-options="option for option in decade.stages[stage].opts"></select>
+        </div>
+      </div>
+
+      <div class="master-pgmr-row6">
+        <div class="control-5 square-knob" ng-repeat="stepper_key in ['F', 'G', 'H', 'J', 'K']">
+          {{stepper_key}}<br />
+          <select ng-model="eniac.masterProgrammer.steppers[stepper_key].clear_switch.opt"
+                  ng-options="option for option in eniac.masterProgrammer.steppers[stepper_key].clear_switch.opts"></select>
+        </div>
+      </div>
+
+      <div class="master-pgmr-row4">
+      </div>
+
+      <div class="master-pgmr-row7">
+        <div class="control-10 control-io" ng-repeat="decade in eniac.masterProgrammer.decades.slice(10,20)">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{decade.direct_input.busName || "&bull;"}}</div></div>
+        </div>
+      </div>
+      <div class="master-pgmr-row7">
+        <div class="control-5 control-io" ng-repeat="stepper_key in ['F', 'G', 'H', 'J', 'K']">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].direct_input.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_input.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].clear_direct_input.busName || "&bull;"}}</div></div>
+        </div>
+      </div>
+      <div class="master-pgmr-row7">
+        <div class="control-5 control-io" ng-repeat="stepper_key in ['F', 'G', 'H', 'J', 'K']">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_outputs[0].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_outputs[1].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_outputs[2].busName || "&bull;"}}</div></div>
+        </div>
+      </div>
+      <div class="master-pgmr-row7">
+        <div class="control-5 control-io" ng-repeat="stepper_key in ['F', 'G', 'H', 'J', 'K']">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_outputs[3].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_outputs[4].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.masterProgrammer.steppers[stepper_key].program_pulse_outputs[5].busName || "&bull;"}}</div></div>
+        </div>
+      </div>
+    </div>
+     
+    <div class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
+    </div>
+
+  </div>
+</div>

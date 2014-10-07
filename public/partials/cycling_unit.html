@@ -1,0 +1,69 @@
+<div class="panel">
+  <div class="subpanel leds">
+    Cycling Unit<br />
+    Cycle {{eniac.cyclingUnit.cycle}}: SubCycle {{eniac.cyclingUnit.subCycle}} of {{eniac.cyclingUnit.lines.length}}
+  </div>
+ 
+  <div class="subpanel data-buses-and-panel-controls">
+    <div class="cycling-unit-row1">
+      <div class="cycling-unit-oscope">
+      </div>
+    </div>
+    <div class="cycling-unit-row2">
+      <div class="cycling-unit-timing-chart">
+        <h2>CYCLING UNIT PULSES AND GATES</h2>
+        <div class="timing-row" ng-repeat="line_name in eniac.cyclingUnit.line_names">
+          <div class="line-name">{{line_name}}</div>
+          <div class="timing-cell {{line[line_name]==1 ? 'level-high' : 'level-low'}} {{(($index == 0) || (line[line_name] == eniac.cyclingUnit.lines[$index-1][line_name])) ? 'no-edge' : 'edge'}} {{(eniac.cyclingUnit.subCycle==$index) ? 'cur-subcycle' : ''}}" ng-repeat="line in eniac.cyclingUnit.lines">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cycling-unit-row3">
+      <div class="control-3-centered">
+        <button class="square-control-btn">Heaters<br/>On Off</button>
+      </div>
+      <div class="control-3-centered">
+      </div>
+      <div class="control-3-centered">
+        <div class="square-control">HOURS<br />CYCLING UNIT</div>
+      </div>
+    </div>
+    <div class="cycling-unit-row4">
+      <div class="control-3-centered">
+        <button class="square-control-btn" ng-click="eniac.step();">1 Pulse</button>
+      </div>
+      <div class="control-3-centered">
+        <div class="square-control">OSCOPE SETTING</div>
+      </div>
+      <div class="control-3-centered">
+        <div class="square-control">OPERAT. SETTING</div>
+      </div>
+    </div>
+    <div class="cycling-unit-row5">
+      <div class="control-3-centered">
+        <!-- 1 dummy -->
+        <div class="control-io">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+      <div class="control-3-centered">
+        <!-- 1 dummy -->
+        <div class="control-io">
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+      <div class="control-3-centered">
+        <!-- 2 dummies -->
+        <div class="control-io">
+          <div class="two-control-io-left "><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+          <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content">&bull;</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
+  </div>
+
+</div>
