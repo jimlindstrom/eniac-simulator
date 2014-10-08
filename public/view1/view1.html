@@ -1,5 +1,26 @@
-<div class="partial-container" ng-include src="'partials/initiating_unit.html'"></div>
-<div class="partial-container" ng-include src="'partials/cycling_unit.html'"></div>
-<div class="partial-container" ng-include src="'partials/master_programmer.html'"></div>
-<div class="partial-container" ng-include src="'partials/constant_xmitters.html'"></div>
-<div class="partial-container" ng-include src="'partials/accumulators.html'"></div>
+<div class="controls">
+  <div class="inner-controls" style="{{controls_are_expanded ? '' : 'display: none;'}}">
+    1. Select an ENIAC program:<br />
+    <select ng-model="test_program" ng-options="pgm.id as pgm.name for pgm in test_programs" ng-change="load_program()">
+    </select>
+    <br />
+    <br />
+    2. Fire up the ENIAC:
+    <ul>
+      <li>Press "INITIAL CLEAR"</li>
+      <li>Press "INIT PULSE"</li>
+      <li>Press "START"</li>
+    </ul>
+  </div>
+  <div class="expand-label">
+    <a href ng-click="controls_are_expanded = !controls_are_expanded;">{{controls_are_expanded ? 'Hide Controls' : 'Show Controls'}}</a>
+  </div>
+</div>
+
+<div class="eniac">
+  <div class="partial-container" ng-include src="'partials/initiating_unit.html'"></div>
+  <div class="partial-container" ng-include src="'partials/cycling_unit.html'"></div>
+  <div class="partial-container" ng-include src="'partials/master_programmer.html'"></div>
+  <div class="partial-container" ng-include src="'partials/constant_xmitters.html'"></div>
+  <div class="partial-container" ng-include src="'partials/accumulators.html'"></div>
+</div>

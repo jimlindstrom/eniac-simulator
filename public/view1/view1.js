@@ -10,21 +10,45 @@ angular.module('myApp.view1', ['ngRoute'])
 }])
 
 .controller('View1Ctrl', 
-//            ['$scope', '$interval', 'Eniac', 'TestAccToAccNegNumTransfer',
-//            ['$scope', '$interval', 'Eniac', 'TestAddTwoConstantsOnce',
-            ['$scope', '$interval', 'Eniac', 'TestSubtractConstantsWithMasterProgrammer',
-             function($scope, $interval, Eniac, TestProgram) {
+            ['$scope', '$interval', 'Eniac', 
+             'TestAccToAccNegNumTransfer',
+             'TestAddTwoConstantsOnce',
+             'TestSubtractConstantsWithMasterProgrammer',
+             function($scope, $interval, Eniac, 
+                      TestAccToAccNegNumTransfer, 
+                      TestAddTwoConstantsOnce, 
+                      TestSubtractConstantsWithMasterProgrammer) {
 
-  function handleTestSuccess(msg) {
-    alert(msg);
-  }
+  $scope.controls_are_expanded = true;
 
-  function handleTestFailure(msg) {
-    alert(msg);
-  }
+  $scope.test_programs = [
+    {
+      id: 0,
+      name: "Transfer a Negative Number",
+      program: TestAccToAccNegNumTransfer
+    },
+    {
+      id: 1,
+      name: "Add Two Constants",
+      program: TestAddTwoConstantsOnce
+    },
+    {
+      id: 2,
+      name: "(X - Y) * 3, with Master Programmer",
+      program: TestSubtractConstantsWithMasterProgrammer
+    }
+  ];
+  $scope.test_program = $scope.test_programs[0].id;
+
+  $scope.load_program = function () {
+    $scope.eniac = new Eniac.build({});
+    $scope.test_programs[$scope.test_program].program.setup($scope.eniac);
+  };
 
   $scope.eniac = new Eniac.build({});
+  $scope.test_programs[$scope.test_program].program.setup($scope.eniac);
 
-  TestProgram.setup($scope.eniac);
-//  TestProgram.run($scope.eniac, handleTestSuccess, handleTestFailure);
+  // function handleTestSuccess(msg) { alert(msg); }
+  // function handleTestFailure(msg) { alert(msg); }
+  // TestProgram.run($scope.eniac, handleTestSuccess, handleTestFailure);
 }]);

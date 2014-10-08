@@ -1,6 +1,5 @@
 In Progress
 ---
-- Top-level div to explain, load sample programs, etc.
 
 High Prio
 ---

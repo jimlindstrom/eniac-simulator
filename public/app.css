@@ -1,9 +1,36 @@
 /******************************************************************************
+ * CONTROLS
+ ******************************************************************************/
+
+.controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 3px 5px 3px 5px;
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(8,48,8,0.25);
+     -moz-box-shadow: 1px 2px 5px 0px rgba(8,48,8,0.25);
+          box-shadow: 1px 2px 5px 0px rgba(8,48,8,0.25);
+  font-size: 14px;
+}
+
+.controls ul {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+.controls .expand-label {
+  width: 100%;
+  text-align: center;
+}
+
+/******************************************************************************
  * ENIAC CONTAINER
  ******************************************************************************/
 
 .eniac {
   display: inline-block;
+  padding-top: 30px;
   width: 5000px;
   margin: 5px;
 }
