@@ -24,8 +24,8 @@ angular.module('myApp.view1', ['ngRoute'])
   $scope.test_programs = [
     {
       id: 0,
-      name: "Transfer a Negative Number",
-      program: TestAccToAccNegNumTransfer
+      name: "(X - Y) * 3, with Master Programmer",
+      program: TestSubtractConstantsWithMasterProgrammer
     },
     {
       id: 1,
@@ -34,9 +34,9 @@ angular.module('myApp.view1', ['ngRoute'])
     },
     {
       id: 2,
-      name: "(X - Y) * 3, with Master Programmer",
-      program: TestSubtractConstantsWithMasterProgrammer
-    }
+      name: "Transfer a Negative Number",
+      program: TestAccToAccNegNumTransfer
+    },
   ];
   $scope.test_program = $scope.test_programs[0].id;
 
