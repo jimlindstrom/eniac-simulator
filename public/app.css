@@ -13,6 +13,7 @@
      -moz-box-shadow: 1px 2px 5px 0px rgba(8,48,8,0.25);
           box-shadow: 1px 2px 5px 0px rgba(8,48,8,0.25);
   font-size: 14px;
+  border-bottom: 2px solid #888;
 }
 
 .controls ul {
@@ -31,7 +32,7 @@
 .eniac {
   display: inline-block;
   padding-top: 30px;
-  width: 5000px;
+  width: 3200px;
   margin: 5px;
 }
 
