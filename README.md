@@ -6,7 +6,7 @@ This is a simulator for the [ENIAC](https://en.wikipedia.org/wiki/ENIAC), the fi
 
 ## Demo
 
-The demo is set up to take two user-inputted constants, subtract them, and triple the result. It uses the master programmer, the constant transmitter, and both accumulators to accomplish this task in about 13 "addition times".
+The demo is set up to run three pre-configured programs. Select one and then follow the directions for running the machine. (Read below for how to write your own programs!)
 
 You can view it at [http://eniac-simulator.herokuapp.com/](http://eniac-simulator.herokuapp.com/).
 
@@ -14,34 +14,6 @@ Or, fire up the ENIAC locally by performing these operations:
 
 *  Run ```foreman start```
 *  Visit [http://localhost:5000/](http://localhost:5000/)
-
-Once you set the controls, fire up the machine:
-
-*  Press "INITIAL CLEAR" on the Initiating Unit (left-most unit)
-*  Press "INIT PULSE" on the Initiating Unit
-*  Press "START" on the Initiating Unit
-
-
-## Details
-
-I've focused on building enough to get a flavor for what it was like to program the ENIAC. What's included in this simulator so far is:
-
-* Initiating Unit
-* Cycling Unit
-* Master Programmer
-* Constant Transmitter (1)
-* Accumulator (2)
-* Buses
-
-Not yet tackled are:
-
-* Multiplier
-* Function Table
-* Divider and Square Rooter
-* Printer
-* Card Reader
-
-(Refer to TODO.txt for a development roadmap.)
 
 ## How do I write an ENIAC program?
 
@@ -66,6 +38,27 @@ At the completion of this program, Accumulator 1 holds X+Y.
 Even this simple program takes about 50-100 lines of configuring and wiring up: https://github.com/jimlindstrom/eniac-simulator/blob/master/public/test_programs/test_add_two_constants_once.js
 
 To see more complex programs, browse these tests: https://github.com/jimlindstrom/eniac-simulator/tree/master/public/test_programs
+
+## What's built?
+
+I've focused on building enough to get a flavor for what it was like to program the ENIAC. What's included in this simulator so far is:
+
+* Initiating Unit
+* Cycling Unit
+* Master Programmer
+* Constant Transmitter (1)
+* Accumulator (2)
+* Buses
+
+Not yet tackled are:
+
+* Multiplier
+* Function Table
+* Divider and Square Rooter
+* Printer
+* Card Reader
+
+(Refer to TODO.txt for a development roadmap.)
 
 ## References
 
