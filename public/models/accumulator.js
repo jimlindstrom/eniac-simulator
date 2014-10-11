@@ -11,6 +11,7 @@ angular.module('myApp')
     this.repeatOpts = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 
     this.name = name;
+    this.panelId = this.name.replace(/[^A-Za-z0-9]/g, "_");
     this.digitalInputs = [ 
       { name: 'α', bus: null, busName: null }, 
       { name: 'β', bus: null, busName: null }, 
@@ -85,26 +86,34 @@ angular.module('myApp')
   };
 
   // FIXME: bug. This doesn't let us use the nonrepeating ones...
-  Accumulator.prototype.connectCtrlIn = function (idx, bus) {
+  Accumulator.prototype.connectCtrlIn = function (idx, bus, portNum) {
     if (idx < 5) {
       this.repeatProgControls[idx].inPort.bus     = bus;
       this.repeatProgControls[idx].inPort.busName = bus.name;
+      this.repeatProgControls[idx].inPort.portNum = portNum;
+      this.repeatProgControls[idx].inPort.portId  = this.panelId + "-" + bus.name + "-" + portNum;
     }
     else { 
       this.repeatProgControls[idx].inPort.bus     = bus;
       this.repeatProgControls[idx].inPort.busName = bus.name;
+      this.repeatProgControls[idx].inPort.portNum = portNum;
+      this.repeatProgControls[idx].inPort.portId  = this.panelId + "-" + bus.name + "-" + portNum;
     }
   };
 
   // FIXME: bug. This doesn't let us use the nonrepeating ones...
-  Accumulator.prototype.connectCtrlOut = function (idx, bus) {
+  Accumulator.prototype.connectCtrlOut = function (idx, bus, portNum) {
     if (idx < 5) {
       this.repeatProgControls[idx].outPort.bus     = bus;
       this.repeatProgControls[idx].outPort.busName = bus.name;
+      this.repeatProgControls[idx].outPort.portNum = portNum;
+      this.repeatProgControls[idx].outPort.portId  = this.panelId + "-" + bus.name + "-" + portNum;
     }
     else { 
       this.repeatProgControls[idx].outPort.bus     = bus;
       this.repeatProgControls[idx].outPort.busName = bus.name;
+      this.repeatProgControls[idx].outPort.portNum = portNum;
+      this.repeatProgControls[idx].outPort.portId  = this.panelId + "-" + bus.name + "-" + portNum;
     }
   };
 

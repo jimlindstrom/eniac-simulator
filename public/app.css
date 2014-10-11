@@ -105,6 +105,28 @@
 }
 
 /******************************************************************************
+ * CONTROL BUS WIRE
+ ******************************************************************************/
+.control-wire-node {
+  position: absolute;
+  border: 5px solid #222;
+  border-radius: 50%;
+  width: 0px;
+  height: 0px
+}
+.control-wire-outer {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+}
+.control-wire-inner {
+  border: 2px solid #222;
+      -ms-transform-origin: 50% 50% 0px;
+  -webkit-transform-origin: 50% 50% 0px;
+          transform-origin: 50% 50% 0px;
+}
+
+/******************************************************************************
  * DATA BUS CONNECTOR
  ******************************************************************************/
 

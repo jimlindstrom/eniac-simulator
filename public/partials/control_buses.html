@@ -1,5 +1,5 @@
 <div class="control-bus" ng-repeat="bus in eniac.controlBuses">
-  <div class="one-control-io {{bus.name}}-{{idx2}}" ng-repeat="idx2 in [0,1,2,3,4,5,6,7,8,9,10]">
+  <div id="{{panel_id}}-{{bus.name}}-{{idx2}}" class="one-control-io" ng-repeat="idx2 in [0,1,2,3,4,5,6,7,8,9,10]">
     <div class="htfix"></div><div class="circled-content">&bull;</div>
   </div>
 </div>

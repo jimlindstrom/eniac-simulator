@@ -1,4 +1,4 @@
-<div class="panel-pair" ng-repeat="xmitter in eniac.constant_xmitters">
+<div class="panel-pair" id="{{xmitter.panelId}}">
   <div class="panel">
     <div class="subpanel leds">
       {{xmitter.name}}
@@ -26,14 +26,14 @@
       <div class="control-row">
         <div class="control-io-row" ng-repeat="xmitter_ctrl_pair_arr in xmitter.xmitter_ctrl_pair_arrays">
           <div class="control-10 control-io-pair" ng-repeat="xmitter_ctrl_pair in xmitter_ctrl_pair_arr">
-            <div class="two-control-io-left"><div class="htfix"></div><div class="circled-content">{{xmitter_ctrl_pair.inPort.busName || "&bull;"}}</div></div>
-            <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content">{{xmitter_ctrl_pair.outPort.busName || "&bull;"}}</div></div>
+            <div class="two-control-io-left"><div class="htfix"></div><div class="circled-content" data-dest-id="{{xmitter_ctrl_pair.inPort.portId}}">{{xmitter_ctrl_pair.inPort.busName || "&bull;"}}</div></div>
+            <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content" data-dest-id="{{xmitter_ctrl_pair.outPort.portId}}">{{xmitter_ctrl_pair.outPort.busName || "&bull;"}}</div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
+    <div ng-repeat="panel_id in [xmitter.panelId]" class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
     </div>
 
   </div>

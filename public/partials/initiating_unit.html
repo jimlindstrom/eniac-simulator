@@ -1,6 +1,6 @@
-<div class="panel">
+<div class="panel" id="{{initiatingUnit.panelId}}">
   <div class="subpanel leds">
-    Initiating Unit<br />
+    {{initiatingUnit.name}}<br />
   </div>
 
   <div class="subpanel data-buses-and-panel-controls">
@@ -63,7 +63,7 @@
       <div class="eniac-small-badge">
       </div>
     </div>
-    <div class="initiating-unit-row5">
+    <div class="initiating-unit-row5"><!-- FIXME: these should be references to the initiating unit, not eniac -->
       <div class="control-3-and-3"><button class="square-ctrl-btn" ng-click="eniac.start();">START</button></div>
       <div class="control-3-and-3"></div>
       <div class="control-3-and-3"><button class="square-ctrl-btn" ng-click="eniac.stop();">STOP</button></div>
@@ -72,9 +72,9 @@
       <div class="control-3-and-3"><button class="square-ctrl-btn" ng-click="eniac.init_pulse();">INIT PULSE</button></div>
     </div>
     <div class="initiating-unit-row6">
-      <div class="control-3-and-3"><div class="small-circle-led {{eniac.initiatingUnit.active ? 'led-black' : 'led-amber'}}"></div></div>
+      <div class="control-3-and-3"><div class="small-circle-led {{initiatingUnit.active ? 'led-black' : 'led-amber'}}"></div></div>
       <div class="control-3-and-3"></div>
-      <div class="control-3-and-3"><div class="small-circle-led {{eniac.initiatingUnit.active ? 'led-green' : 'led-black'}}"></div></div>
+      <div class="control-3-and-3"><div class="small-circle-led {{initiatingUnit.active ? 'led-green' : 'led-black'}}"></div></div>
       <div class="control-3-and-3">
         <!-- 1 dummy -->
         <div class="control-io">
@@ -171,13 +171,13 @@
       </div>
       <div class="control-3-and-3">
         <div class="control-io">
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{eniac.initiatingUnit.initPulse.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content" data-dest-id="{{initiatingUnit.initPulsePortId()}}">{{initiatingUnit.initPulse.busName || "&bull;"}}</div></div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
+  <div ng-repeat="panel_id in [initiatingUnit.panelId]" class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
   </div>
 
 </div>

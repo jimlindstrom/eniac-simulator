@@ -1,7 +1,7 @@
-<div class="panel">
+<div class="panel" id="{{cyclingUnit.panelId}}">
   <div class="subpanel leds">
-    Cycling Unit<br />
-    Cycle {{eniac.cyclingUnit.cycle}}: SubCycle {{eniac.cyclingUnit.subCycle}} of {{eniac.cyclingUnit.lines.length}}
+    {{cyclingUnit.name}}<br />
+    Cycle {{cyclingUnit.cycle}}: SubCycle {{cyclingUnit.subCycle}} of {{cyclingUnit.lines.length}}
   </div>
  
   <div class="subpanel data-buses-and-panel-controls">
@@ -12,9 +12,9 @@
     <div class="cycling-unit-row2">
       <div class="cycling-unit-timing-chart">
         <h2>CYCLING UNIT PULSES AND GATES</h2>
-        <div class="timing-row" ng-repeat="line_name in eniac.cyclingUnit.line_names">
+        <div class="timing-row" ng-repeat="line_name in cyclingUnit.line_names">
           <div class="line-name">{{line_name}}</div>
-          <div class="timing-cell {{line[line_name]==1 ? 'level-high' : 'level-low'}} {{(($index == 0) || (line[line_name] == eniac.cyclingUnit.lines[$index-1][line_name])) ? 'no-edge' : 'edge'}} {{(eniac.cyclingUnit.subCycle==$index) ? 'cur-subcycle' : ''}}" ng-repeat="line in eniac.cyclingUnit.lines">
+          <div class="timing-cell {{line[line_name]==1 ? 'level-high' : 'level-low'}} {{(($index == 0) || (line[line_name] == cyclingUnit.lines[$index-1][line_name])) ? 'no-edge' : 'edge'}} {{(cyclingUnit.subCycle==$index) ? 'cur-subcycle' : ''}}" ng-repeat="line in cyclingUnit.lines">
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@
     </div>
     <div class="cycling-unit-row4">
       <div class="control-3-centered">
-        <button class="square-control-btn" ng-click="eniac.step();">1 Pulse</button>
+        <button class="square-control-btn" ng-click="eniac.step();">1 Pulse</button><!-- FIXME: make a method of cyclingUnit -->
       </div>
       <div class="control-3-centered">
         <div class="square-control">OSCOPE SETTING</div>
@@ -63,7 +63,7 @@
     </div>
   </div>
 
-  <div class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
+  <div ng-repeat="panel_id in [cyclingUnit.panelId]" class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
   </div>
 
 </div>

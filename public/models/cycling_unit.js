@@ -7,6 +7,8 @@ angular.module('myApp')
     this.cycle = 0;
     this.subCycle = 0;
     this.subscribers = [ ];
+    this.name = 'Cycling Unit';
+    this.panelId = this.name.replace(/[^A-Za-z0-9]/g, "_");
     this.line_names = ["cpp", "10p", "9p", "1p", "2p", "2'p", "4p", "1'p", "ccg", "rp"];
     this.lines = [
       // 0

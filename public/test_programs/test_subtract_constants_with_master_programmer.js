@@ -40,35 +40,35 @@ angular.module('myApp')
      **************************************************************************/
 
     // Set IU to INIT MP(A)
-    eniac.initiatingUnit.connectInitPulse(eniac.controlBuses[0]);
-    eniac.masterProgrammer.connectStepperProgramPulseInput('A', eniac.controlBuses[0]);
+    eniac.initiatingUnit.connectInitPulse(eniac.controlBuses[0], 10);
+    eniac.masterProgrammer.connectStepperProgramPulseInput('A', eniac.controlBuses[0], 6);
 
     // Set MP-A0 to program CX0-0.0 to TX top right (1x) via c1
     // Set MP-A0 to program A0.R0 to RX (1x) via c1
     // Set A.R0 to kick MP-A upon completion via c0
     // Set MP-A0 to step upon kick from A.R0 via c0
-    eniac.masterProgrammer.connectStepperProgramPulseOutput('A', 0, eniac.controlBuses[1]);
-    eniac.constant_xmitters[0].connectCtrlIn(0, 0,                  eniac.controlBuses[1]);
-    eniac.accumulators[0].connectCtrlIn(0,                          eniac.controlBuses[1]);
-    eniac.accumulators[0].connectCtrlOut(0,                         eniac.controlBuses[0]);
+    eniac.masterProgrammer.connectStepperProgramPulseOutput('A', 0, eniac.controlBuses[1], 0);
+    eniac.constant_xmitters[0].connectCtrlIn(0, 0,                  eniac.controlBuses[1], 0);
+    eniac.accumulators[0].connectCtrlIn(0,                          eniac.controlBuses[1], 0);
+    eniac.accumulators[0].connectCtrlOut(0,                         eniac.controlBuses[0], 0);
 
     // Set MP-A1 to program CX0-0.1 to TX bot right (1x) via c3
     // Set MP-A1 to program A0.R1 to RX (1x) via c3
     // Set A0.R1 to kick MP-A upon completion via c0
     // Set MP-A1 to step upon kick from A0.R1 via c0
-    eniac.masterProgrammer.connectStepperProgramPulseOutput('A', 1, eniac.controlBuses[3]);
-    eniac.constant_xmitters[0].connectCtrlIn(0, 1,                  eniac.controlBuses[3]);
-    eniac.accumulators[0].connectCtrlIn(1,                          eniac.controlBuses[3]);
-    eniac.accumulators[0].connectCtrlOut(1,                         eniac.controlBuses[0]);
+    eniac.masterProgrammer.connectStepperProgramPulseOutput('A', 1, eniac.controlBuses[3], 4);
+    eniac.constant_xmitters[0].connectCtrlIn(0, 1,                  eniac.controlBuses[3], 5);
+    eniac.accumulators[0].connectCtrlIn(1,                          eniac.controlBuses[3], 0);
+    eniac.accumulators[0].connectCtrlOut(1,                         eniac.controlBuses[0], 1);
 
     // Set MP-A2 to program A0.R2 to TX via c5
     // Set MP-A2 to program A1.R0 to RX via c5
     // Set A1.R0 to kick MP-A upon completion via c0
     // Set MP-A1 to step upon 3rd kick from A0.R1 via c0
-    eniac.masterProgrammer.connectStepperProgramPulseOutput('A', 2, eniac.controlBuses[5]);
-    eniac.accumulators[0].connectCtrlIn(2,                          eniac.controlBuses[5]);
-    eniac.accumulators[1].connectCtrlIn(0,                          eniac.controlBuses[5]);
-    eniac.accumulators[1].connectCtrlOut(0,                         eniac.controlBuses[0]);
+    eniac.masterProgrammer.connectStepperProgramPulseOutput('A', 2, eniac.controlBuses[5], 10);
+    eniac.accumulators[0].connectCtrlIn(2,                          eniac.controlBuses[5], 8);
+    eniac.accumulators[1].connectCtrlIn(0,                          eniac.controlBuses[5], 0);
+    eniac.accumulators[1].connectCtrlOut(0,                         eniac.controlBuses[0], 0);
     eniac.masterProgrammer.decades[0].stages[2].opt = 3;
     
     /**************************************************************************

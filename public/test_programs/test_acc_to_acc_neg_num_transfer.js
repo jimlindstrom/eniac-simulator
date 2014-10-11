@@ -31,15 +31,15 @@ angular.module('myApp')
 
     // Set IU to INIT CX0-0.0
     // Set IU to INIT A0.R0
-    eniac.initiatingUnit.connectInitPulse(eniac.controlBuses[0]);
-    eniac.constant_xmitters[0].connectCtrlIn(0, 0,                  eniac.controlBuses[0]);
-    eniac.accumulators[0].connectCtrlIn(0,                          eniac.controlBuses[0]);
+    eniac.initiatingUnit.connectInitPulse(eniac.controlBuses[0], 10);
+    eniac.constant_xmitters[0].connectCtrlIn(0, 0,                  eniac.controlBuses[0], 0);
+    eniac.accumulators[0].connectCtrlIn(0,                          eniac.controlBuses[0], 0);
 
     // Set A0.R0 to kick A0.R1 upon completion via c1
     // Set A0.R0 to kick A1.R0 upon completion via c1
-    eniac.accumulators[0].connectCtrlOut(0,                         eniac.controlBuses[1]);
-    eniac.accumulators[0].connectCtrlIn(1,                          eniac.controlBuses[1]);
-    eniac.accumulators[1].connectCtrlIn(0,                          eniac.controlBuses[1]);
+    eniac.accumulators[0].connectCtrlOut(0,                         eniac.controlBuses[1], 0);
+    eniac.accumulators[0].connectCtrlIn(1,                          eniac.controlBuses[1], 8);
+    eniac.accumulators[1].connectCtrlIn(0,                          eniac.controlBuses[1], 0);
 
     /**************************************************************************
      * WIRE UP DATA FLOW

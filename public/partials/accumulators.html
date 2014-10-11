@@ -1,4 +1,4 @@
-<div class="panel" ng-repeat="acc in eniac.accumulators">
+<div class="panel" id="{{acc.panelId}}">
   <div class="subpanel leds">
     {{acc.name}}: {{acc.curValStr()}}
 
@@ -78,7 +78,7 @@
         <div class="control-8"></div>
         <div class="control-8"></div>
         <div class="control-8 control-io" ng-repeat="ctrl in acc.nonRepeatProgControls">
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content">{{ctrl.inPort.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content" data-dest-id="{{ctrl.inPort.portId}}">{{ctrl.inPort.busName || "&bull;"}}</div></div>
         </div>
         <div class="control-8"></div>
         <div class="control-8"></div>
@@ -86,14 +86,14 @@
     
       <div class="control-subrow">
         <div class="control-8 control-io-pair" ng-repeat="ctrl in acc.repeatProgControls">
-          <div class="control-8 two-control-io-left"><div class="htfix"></div><div class="circled-content">{{ctrl.inPort.busName || "&bull;"}}</div></div>
-          <div class="control-8 two-control-io-right"><div class="htfix"></div><div class="circled-content">{{ctrl.outPort.busName || "&bull;"}}</div></div>
+          <div class="control-8 two-control-io-left"><div class="htfix"></div><div class="circled-content" data-dest-id="{{ctrl.inPort.portId}}">{{ctrl.inPort.busName || "&bull;"}}</div></div>
+          <div class="control-8 two-control-io-right"><div class="htfix"></div><div class="circled-content" data-dest-id="{{ctrl.outPort.portId}}">{{ctrl.outPort.busName || "&bull;"}}</div></div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
+  <div ng-repeat="panel_id in [acc.panelId]" class="subpanel control-buses" ng-include src="'partials/control_buses.html'">
   </div>
 
 </div>

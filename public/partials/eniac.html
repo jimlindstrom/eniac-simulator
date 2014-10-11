@@ -1,0 +1,15 @@
+<div ng-repeat="initiatingUnit in [eniac.initiatingUnit]" 
+     class="partial-container" 
+     ng-include src="'partials/initiating_unit.html'"></div>
+<div ng-repeat="cyclingUnit in [eniac.cyclingUnit]"
+     class="partial-container" 
+     ng-include src="'partials/cycling_unit.html'"></div>
+<div ng-repeat="masterProgrammer in [eniac.masterProgrammer]"
+     class="partial-container" 
+     ng-include src="'partials/master_programmer.html'"></div>
+<div ng-repeat="xmitter in eniac.constant_xmitters"
+     class="partial-container" 
+     ng-include src="'partials/constant_xmitters.html'"></div>
+<div ng-repeat="acc in eniac.accumulators"
+     class="partial-container" 
+     ng-include src="'partials/accumulators.html'"></div>

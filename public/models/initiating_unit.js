@@ -4,9 +4,11 @@ angular.module('myApp')
 
 .factory('InitiatingUnit', function() {
   function InitiatingUnit() {
-    this.initPulse = { bus: null, busName: null };
+    this.initPulse = { bus: null, busName: null, portNum: null };
     this.active = false;
     this.initPulseIsScheduled = false;
+    this.name = 'Initiating Unit';
+    this.panelId = this.name.replace(/[^A-Za-z0-9]/g, "_");
   }
 
   InitiatingUnit.prototype.clear = function () {
@@ -14,9 +16,14 @@ angular.module('myApp')
     this.initPulseIsScheduled = false;
   };
 
-  InitiatingUnit.prototype.connectInitPulse = function (bus) {
+  InitiatingUnit.prototype.connectInitPulse = function (bus, portNum) {
     this.initPulse.bus     = bus;
     this.initPulse.busName = bus.name;
+    this.initPulse.portNum = portNum;
+  };
+
+  InitiatingUnit.prototype.initPulsePortId = function() {
+    return this.panelId + "-" + this.initPulse.busName + "-" + this.initPulse.portNum;
   };
 
   InitiatingUnit.prototype.scheduleInitPulse = function () {

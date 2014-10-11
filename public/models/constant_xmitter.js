@@ -11,8 +11,8 @@ angular.module('myApp')
     this.top_opt = top_opt || "L";
     this.bot_opts = bot_opts || ["A", "B"];
     this.bot_opt = bot_opt || "A";
-    this.inPort  = { bus:null, busName:null };
-    this.outPort = { bus:null, busName:null };
+    this.inPort  = { bus:null, busName:null, portNum:null, portId:null };
+    this.outPort = { bus:null, busName:null, portNum:null, portId:null };
   }
 
   ConstantXmitterCtrlPair.prototype.clear = function () {
@@ -77,6 +77,7 @@ angular.module('myApp')
           function(ConstantXmitterCtrlPair, TensComplement) {
   function ConstantXmitter(name) {
     this.name = name;
+    this.panelId = this.name.replace(/[^A-Za-z0-9]/g, "_");
     this.xmitter_ctrl_pair_arrays = [
       [
         ConstantXmitterCtrlPair.build({top_opt: "L", bot_opts: ["A", "B"], bot_opt: "A"}),
@@ -164,14 +165,18 @@ angular.module('myApp')
     });
   };
 
-  ConstantXmitter.prototype.connectCtrlIn = function (row, col, bus) {
+  ConstantXmitter.prototype.connectCtrlIn = function (row, col, bus, portNum) {
     this.xmitter_ctrl_pair_arrays[row][col].inPort.bus     = bus;
     this.xmitter_ctrl_pair_arrays[row][col].inPort.busName = bus.name;
+    this.xmitter_ctrl_pair_arrays[row][col].inPort.portNum = portNum;
+    this.xmitter_ctrl_pair_arrays[row][col].inPort.portId  = this.panelId + "-" + bus.name + "-" + portNum;
   };
 
-  ConstantXmitter.prototype.connectCtrlOut = function (row, col, bus) {
+  ConstantXmitter.prototype.connectCtrlOut = function (row, col, bus, portNum) {
     this.xmitter_ctrl_pair_arrays[row][col].outPort.bus     = bus;
     this.xmitter_ctrl_pair_arrays[row][col].outPort.busName = bus.name;
+    this.xmitter_ctrl_pair_arrays[row][col].outPort.portNum = portNum;
+    this.xmitter_ctrl_pair_arrays[row][col].outPort.portId  = this.panelId + "-" + bus.name + "-" + portNum;
   };
 
   ConstantXmitter.prototype.connectDataOut = function (bus) {

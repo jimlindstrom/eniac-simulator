@@ -17,7 +17,7 @@ angular.module('myApp')
     // Instruction -3
     // t=-3
     // next: -> c5 (Instruction 1)
-    eniac.initiatingUnit.connectInitPulse(eniac.controlBuses[4]);
+    eniac.initiatingUnit.connectInitPulse(eniac.controlBuses[4], 10);
   
     // Instruction -2
     // t=-2
@@ -58,10 +58,10 @@ angular.module('myApp')
     // consumed: A0[R0]
   
     // prev: god -> CX0[0,0]
-    eniac.constant_xmitters[0].connectCtrlIn(0, 0, eniac.controlBuses[4]);
+    eniac.constant_xmitters[0].connectCtrlIn(0, 0, eniac.controlBuses[4], 0);
   
     // prev: god -> A0[R0]
-    eniac.accumulators[0].connectCtrlIn(0,         eniac.controlBuses[4]);
+    eniac.accumulators[0].connectCtrlIn(0,         eniac.controlBuses[4], 0);
   
     // CX0[0,0] TX
     eniac.constant_xmitters[0].xmitter_ctrl_pair_arrays[0][0].top_opt = "LR"; // entire number
@@ -72,14 +72,14 @@ angular.module('myApp')
     eniac.accumulators[0].repeatProgControls[0].repeat = 1;      // Do it once
   
     // Connect CX0 and A0(α) via d0
-    eniac.constant_xmitters[0].connectDataOut(eniac.dataBuses[0]); 
-    eniac.accumulators[0].connectDataIn('α',  eniac.dataBuses[0]);
+    eniac.constant_xmitters[0].connectDataOut(eniac.dataBuses[0], 0); 
+    eniac.accumulators[0].connectDataIn('α',  eniac.dataBuses[0], 0);
   
     // CX0[0,0] -> next
-    eniac.constant_xmitters[0].connectCtrlOut(0, 0, eniac.controlBuses[0]);
+    eniac.constant_xmitters[0].connectCtrlOut(0, 0, eniac.controlBuses[0], 0);
   
     // A0[R0] -> next
-    eniac.accumulators[0].connectCtrlOut(0,         eniac.controlBuses[1]);
+    eniac.accumulators[0].connectCtrlOut(0,         eniac.controlBuses[1], 0);
   
     // Instruction 2
     // t=1
@@ -93,10 +93,10 @@ angular.module('myApp')
     // consumed: A0[R0], A1[R0]
   
     // Instruction -> CX0[0,1]
-    eniac.constant_xmitters[0].connectCtrlIn(0, 1, eniac.controlBuses[0]);
+    eniac.constant_xmitters[0].connectCtrlIn(0, 1, eniac.controlBuses[0], 2);
   
     // Instruction -> A1[R0]
-    eniac.accumulators[1].connectCtrlIn(0,         eniac.controlBuses[1]);
+    eniac.accumulators[1].connectCtrlIn(0,         eniac.controlBuses[1], 0);
   
     // CX0[0,1] TX
     eniac.constant_xmitters[0].xmitter_ctrl_pair_arrays[0][1].top_opt = "LR";// Send the full number
@@ -110,10 +110,10 @@ angular.module('myApp')
     eniac.accumulators[1].connectDataIn('α',  eniac.dataBuses[0]);
   
     // CX0[0,1] -> next
-    eniac.constant_xmitters[0].connectCtrlOut(0, 1, eniac.controlBuses[2]);
+    eniac.constant_xmitters[0].connectCtrlOut(0, 1, eniac.controlBuses[2], 8);
   
     // A0[R1] -> next
-    eniac.accumulators[1].connectCtrlOut(0,         eniac.controlBuses[3]);
+    eniac.accumulators[1].connectCtrlOut(0,         eniac.controlBuses[3], 5);
   
     // Instruction 3
     // t=2
@@ -126,10 +126,10 @@ angular.module('myApp')
     // consumed: A0[R0], A0[R1]; A1[R0], A1[R1]
   
     // prev -> A0[R1]
-    eniac.accumulators[0].connectCtrlIn(1, eniac.controlBuses[2]);
+    eniac.accumulators[0].connectCtrlIn(1, eniac.controlBuses[2], 5);
   
     // prev -> A1[R1]
-    eniac.accumulators[1].connectCtrlIn(1, eniac.controlBuses[3]);
+    eniac.accumulators[1].connectCtrlIn(1, eniac.controlBuses[3], 8);
   
     // A0[R1] TX(A)
     eniac.accumulators[0].repeatProgControls[1].operation = 'A'; // Write to 'A'
