@@ -24,10 +24,10 @@
     <div class="control-row">
       <div class="control-8 plug inter-plug">inter<br/>con</br>plug<br/>L1</div>
       <div class="control-10 plug digital-in" ng-repeat="digitalInput in acc.digitalInputs">
-        <div class="vert-connector" data-dest-id="{{digitalInput.portId}}"ng-include src="'partials/vert_data_bus_inner.html'"></div>
+        <div class="vert-connector" data-dest-id="{{digitalInput.portId}}" ng-tooltip="Accumulator Input {{digitalInput.name}}" ng-include src="'partials/vert_data_bus_inner.html'"></div>
       </div>
       <div class="control-10 plug digital-out" ng-repeat="digitalOutput in acc.digitalOutputs">
-        <div class="vert-connector" data-dest-id="{{digitalOutput.portId}}"ng-include src="'partials/vert_data_bus_inner.html'"></div>
+        <div class="vert-connector" data-dest-id="{{digitalOutput.portId}}" ng-tooltip="Accumulator Output {{digitalOutput.name}}" ng-include src="'partials/vert_data_bus_inner.html'"></div>
       </div>
       <div class="control-8 plug inter-plug">inter<br/>con</br>plug<br/>R1</div>
     </div>
@@ -76,7 +76,7 @@
         <div class="control-8"></div>
         <div class="control-8"></div>
         <div class="control-8 control-io" ng-repeat="ctrl in acc.nonRepeatProgControls">
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{ctrl.inPort.portId}}">{{ctrl.inPort.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" ng-tooltip="Non-repeating control output {{$index}}" data-dest-id="{{ctrl.inPort.portId}}">{{ctrl.inPort.busName || "&bull;"}}</div></div>
         </div>
         <div class="control-8"></div>
         <div class="control-8"></div>
@@ -84,8 +84,8 @@
     
       <div class="control-subrow">
         <div class="control-8 control-io-pair" ng-repeat="ctrl in acc.repeatProgControls">
-          <div class="control-8 two-control-io-left"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{ctrl.inPort.portId}}">{{ctrl.inPort.busName || "&bull;"}}</div></div>
-          <div class="control-8 two-control-io-right"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{ctrl.outPort.portId}}">{{ctrl.outPort.busName || "&bull;"}}</div></div>
+          <div class="control-8 two-control-io-left"><div class="htfix"></div><div class="circled-content control-connector" ng-tooltip="Repeating control input {{$index}}" data-dest-id="{{ctrl.inPort.portId}}">{{ctrl.inPort.busName || "&bull;"}}</div></div>
+          <div class="control-8 two-control-io-right"><div class="htfix"></div><div class="circled-content control-connector" ng-tooltip="Repeating control output {{$index}}" data-dest-id="{{ctrl.outPort.portId}}">{{ctrl.outPort.busName || "&bull;"}}</div></div>
         </div>
       </div>
     </div>

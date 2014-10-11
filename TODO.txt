@@ -8,7 +8,6 @@ High Prio
 
 Med
 ---
-- Hover over control ports to see: (1) tooltip with name, (2) highlight relevant knobs
 - Write test harness for TestPrograms (chain all the tests? make them a view called 'tests'?)
 - Fix bug in wiring Accumulator non-repeating units. and modify both test programs accordingly.
 - Multiplier Unit
@@ -24,5 +23,4 @@ Low
 - Add the neon lights to the top of the accumulator
 - Accumulator: Interconnections (4.4.1)
 - Accumulator: Static Connections (4.3.3)
-
-- Bus oscope for debugging?
+- Oscope

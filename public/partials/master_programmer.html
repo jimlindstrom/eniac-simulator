@@ -78,28 +78,28 @@
 
       <div class="master-pgmr-row7">
         <div class="control-10 control-io" ng-repeat="decade in masterProgrammer.decades.slice(0,10)">
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector">{{decade.direct_input.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div ng-tooltip="Direct Input {{$index}}" class="circled-content control-connector">{{decade.direct_input.busName || "&bull;"}}</div></div>
         </div>
       </div>
       <div class="master-pgmr-row7">
         <div class="control-5 control-io" ng-repeat="stepper_key in ['A', 'B', 'C', 'D', 'E']">
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{masterProgrammer.stepperDirectInputPortId(stepper_key)}}">{{masterProgrammer.steppers[stepper_key].direct_input.busName || "&bull;"}}</div></div>
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{masterProgrammer.stepperProgramPulseInputPortId(stepper_key)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_input.busName || "&bull;"}}</div></div>
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{masterProgrammer.stepperClearDirectInputPortId(stepper_key)}}">{{masterProgrammer.steppers[stepper_key].clear_direct_input.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" ng-tooltip="Stepper {{$stepper_key}} Direct Input" data-dest-id="{{masterProgrammer.stepperDirectInputPortId(stepper_key)}}">{{masterProgrammer.steppers[stepper_key].direct_input.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" ng-tooltip="Stepper {{$stepper_key}} Program Pulse Input" data-dest-id="{{masterProgrammer.stepperProgramPulseInputPortId(stepper_key)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_input.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" ng-tooltip="Stepper {{$stepper_key}} Clear Direct Input" data-dest-id="{{masterProgrammer.stepperClearDirectInputPortId(stepper_key)}}">{{masterProgrammer.steppers[stepper_key].clear_direct_input.busName || "&bull;"}}</div></div>
         </div>
       </div>
       <div class="master-pgmr-row7">
         <div class="control-5 control-io" ng-repeat="stepper_key in ['A', 'B', 'C', 'D', 'E']">
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{masterProgrammer.stepperProgramPulseOutputPortId(stepper_key, 0)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_outputs[0].busName || "&bull;"}}</div></div>
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{masterProgrammer.stepperProgramPulseOutputPortId(stepper_key, 1)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_outputs[1].busName || "&bull;"}}</div></div>
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{masterProgrammer.stepperProgramPulseOutputPortId(stepper_key, 2)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_outputs[2].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" ng-tooltip="Stepper {{$stepper_key}} Program Pulse Output 0" data-dest-id="{{masterProgrammer.stepperProgramPulseOutputPortId(stepper_key, 0)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_outputs[0].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" ng-tooltip="Stepper {{$stepper_key}} Program Pulse Output 1" data-dest-id="{{masterProgrammer.stepperProgramPulseOutputPortId(stepper_key, 1)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_outputs[1].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" ng-tooltip="Stepper {{$stepper_key}} Program Pulse Output 2" data-dest-id="{{masterProgrammer.stepperProgramPulseOutputPortId(stepper_key, 2)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_outputs[2].busName || "&bull;"}}</div></div>
         </div>
       </div>
       <div class="master-pgmr-row7">
         <div class="control-5 control-io" ng-repeat="stepper_key in ['A', 'B', 'C', 'D', 'E']">
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{masterProgrammer.stepperProgramPulseOutputPortId(stepper_key, 3)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_outputs[3].busName || "&bull;"}}</div></div>
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{masterProgrammer.stepperProgramPulseOutputPortId(stepper_key, 4)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_outputs[4].busName || "&bull;"}}</div></div>
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{masterProgrammer.stepperProgramPulseOutputPortId(stepper_key, 5)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_outputs[5].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" ng-tooltip="Stepper {{$stepper_key}} Program Pulse Output 3" data-dest-id="{{masterProgrammer.stepperProgramPulseOutputPortId(stepper_key, 3)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_outputs[3].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" ng-tooltip="Stepper {{$stepper_key}} Program Pulse Output 4" data-dest-id="{{masterProgrammer.stepperProgramPulseOutputPortId(stepper_key, 4)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_outputs[4].busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" ng-tooltip="Stepper {{$stepper_key}} Program Pulse Output 5" data-dest-id="{{masterProgrammer.stepperProgramPulseOutputPortId(stepper_key, 5)}}">{{masterProgrammer.steppers[stepper_key].program_pulse_outputs[5].busName || "&bull;"}}</div></div>
         </div>
       </div>
     </div>
@@ -159,7 +159,7 @@
 
       <div class="master-pgmr-row7">
         <div class="control-10 control-io" ng-repeat="decade in masterProgrammer.decades.slice(10,20)">
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector">{{decade.direct_input.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div ng-tooltip="Direct Input {{$index+10}}" class="circled-content control-connector">{{decade.direct_input.busName || "&bull;"}}</div></div>
         </div>
       </div>
       <div class="master-pgmr-row7">

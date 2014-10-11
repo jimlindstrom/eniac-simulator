@@ -2,8 +2,14 @@
 
 angular.module('myApp')
 
-.factory('Wiring', function() {
+.factory('Wiring', 
+         ['$compile', '$rootScope',
+          function($compile, $rootScope) {
   function Wiring() { }
+
+  function elem_tooltip(elem) {
+    return elem.getAttribute("ng-tooltip") || "Unknown port";
+  }
 
   function elem_bbox_center(elem) {
     var rect = elem.getBoundingClientRect();
@@ -76,7 +82,7 @@ angular.module('myApp')
     angular.element(document.body).append(html);
   }
 
-  function draw_wire_line(point1, point2) {
+  function draw_wire_line(point1, point2, tooltip) {
     var midpt = midpoint_2d(point1, point2);
     var width = dist_2d(point1, point2);
     var deg = rotation_deg(point1, point2);
@@ -88,38 +94,47 @@ angular.module('myApp')
                       "    -ms-transform: rotate("+deg+"deg);" +
                       "-webkit-transform: rotate("+deg+"deg);" +
                       "        transform: rotate("+deg+"deg);";
-    var html =        "<div class=\"control-wire-outer\" style=\""+outer_style+"\">" +
+    var html =        "<div class=\"control-wire-outer\" style=\""+outer_style+"\" ng-tooltip=\""+tooltip+"\">" +
                       "<div class=\"control-wire-inner\" style=\""+inner_style+"\">" +
                       "</div></div>";
 
-    angular.element(document.body).append(html);
+    angular.element(document.body).append($compile(html)($rootScope.$new()));
   }
 
   Wiring.draw_horiz_data_connection = function (elem1, elem2) {
+    var tooltip1 = elem_tooltip(elem1);
+    var tooltip2 = elem_tooltip(elem2);
+    var tooltip = tooltip1 + " <-> " + tooltip2;
     var pt1 = elem_bbox_center(elem1);
     var pt2 = elem_bbox_center(elem2);
 
     draw_horiz_data_plug(pt1);
     draw_horiz_data_plug(pt2);
-    draw_wire_line(pt1, pt2);
+    draw_wire_line(pt1, pt2, tooltip);
   }
 
   Wiring.draw_vert_data_connection = function (elem1, elem2) {
+    var tooltip1 = elem_tooltip(elem1);
+    var tooltip2 = elem_tooltip(elem2);
+    var tooltip = tooltip1 + " <-> " + tooltip2;
     var pt1 = elem_bbox_center(elem1);
     var pt2 = elem_bbox_center(elem2);
 
     draw_vert_data_plug(pt1);
     draw_horiz_data_plug(pt2);
-    draw_wire_line(pt1, pt2);
+    draw_wire_line(pt1, pt2, tooltip);
   };
 
   Wiring.draw_control_connection = function (elem1, elem2) {
+    var tooltip1 = elem_tooltip(elem1);
+    var tooltip2 = elem_tooltip(elem2);
+    var tooltip = tooltip1 + " <-> " + tooltip2;
     var pt1 = elem_bbox_center(elem1);
     var pt2 = elem_bbox_center(elem2);
 
     draw_control_plug(pt1);
     draw_control_plug(pt2);
-    draw_wire_line(pt1, pt2);
+    draw_wire_line(pt1, pt2, tooltip);
   };
 
   Wiring.connect_all_control_ports = function () {
@@ -197,4 +212,4 @@ angular.module('myApp')
   };
 
   return Wiring;
-});
+}]);

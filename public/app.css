@@ -777,3 +777,24 @@
   width: 18px;
   text-align: center;
 }
+
+/******************************************************************************
+ * TOOLTIPS
+ ******************************************************************************/
+
+.tooltip {
+  position: absolute;
+  color: #fff;
+  background: #000;
+  border-radius: 3px;
+  padding: 10px 20px;
+  display: inline-block;
+  z-index:1001;
+}
+.tooltip.ng-enter {
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.tooltip.ng-enter-active {
+  opacity: 1;
+}
