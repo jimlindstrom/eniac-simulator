@@ -21,54 +21,13 @@ angular.module('myApp.view1', ['ngRoute'])
                       TestAddTwoConstantsOnce, 
                       TestSubtractConstantsWithMasterProgrammer) {
 
-  function connect_all_ports() {
-    var q = "//div[contains(@data-dest-id, '-') and contains(@class, 'control-connector')]";
-    var result = document.evaluate(q, document.documentElement, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    if (result) {
-      for (var i=0, len=result.snapshotLength; i < len; i++) {
-        var elem1 = result.snapshotItem(i);
-        var destId = elem1.dataset.destId;
-        if (destId) {
-          var elem2 = document.getElementById(destId);
-          if (elem2) {
-            Wiring.draw_control_connection(elem1, elem2);
-          }
-        }
-      }
-    }
-
-    var q = "//div[contains(@data-dest-id, '-') and contains(@class, 'horiz-connector')]";
-    var result = document.evaluate(q, document.documentElement, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    if (result) {
-      for (var i=0, len=result.snapshotLength; i < len; i++) {
-        var elem1 = result.snapshotItem(i);
-        var destId = elem1.dataset.destId;
-        if (destId) {
-          var elem2 = document.getElementById(destId);
-          if (elem2) {
-            Wiring.draw_horiz_data_connection(elem1, elem2);
-          }
-        }
-      }
-    }
-
-    var q = "//div[contains(@data-dest-id, '-') and contains(@class, 'vert-connector')]";
-    var result = document.evaluate(q, document.documentElement, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    if (result) {
-      for (var i=0, len=result.snapshotLength; i < len; i++) {
-        var elem1 = result.snapshotItem(i);
-        var destId = elem1.dataset.destId;
-        if (destId) {
-          var elem2 = document.getElementById(destId);
-          if (elem2) {
-            Wiring.draw_vert_data_connection(elem1, elem2);
-          }
-        }
-      }
-    }
-  }
-
   $scope.controls_are_expanded = true;
+  $scope.collapse_controls_on_escape = function (ev) {
+    if (ev.which == 27) {
+      $scope.$apply(function(){$scope.controls_are_expanded = false;});
+    }
+  };
+  angular.element(document.body).bind('keydown', $scope.collapse_controls_on_escape);
 
   $scope.test_programs = [
     {
@@ -108,12 +67,12 @@ angular.module('myApp.view1', ['ngRoute'])
     $scope.eniac = new Eniac.build({});
     $scope.test_programs[$scope.test_program].program.setup($scope.eniac);
     $scope.test_program_description = $scope.test_programs[$scope.test_program].description;
-    $timeout(connect_all_ports, 2000);
+    $timeout(Wiring.connect_all_ports, 2000);
   };
 
   $scope.eniac = new Eniac.build({});
   $scope.test_programs[$scope.test_program].program.setup($scope.eniac);
-  $timeout(connect_all_ports, 2000);
+  $timeout(Wiring.connect_all_ports, 2000);
 
   // function handleTestSuccess(msg) { alert(msg); }
   // function handleTestFailure(msg) { alert(msg); }
