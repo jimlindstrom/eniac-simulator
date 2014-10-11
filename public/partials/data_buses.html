@@ -1,15 +1,3 @@
 <div class="data-bus" ng-repeat="bus in eniac.dataBuses">
-  <div class="horiz-connector {{bus.name}}">
-    <div class="top-row">
-      <div class="pin"></div><div class="pin"></div><div class="pin"></div>
-      <div class="pin"></div><div class="pin"></div><div class="pin"></div>
-    </div>
-    <div class="mid-row">
-      <div class="dit"></div><div class="dat"></div><div class="dit"></div>
-    </div>
-    <div class="bot-row">
-      <div class="pin"></div><div class="pin"></div><div class="pin"></div>
-      <div class="pin"></div><div class="pin"></div><div class="pin"></div>
-    </div>
-  </div>
+  <div class="horiz-connector" id="{{panel_id}}-{{bus.name}}" ng-include src="'partials/horiz_data_bus_inner.html'"></div>
 </div>

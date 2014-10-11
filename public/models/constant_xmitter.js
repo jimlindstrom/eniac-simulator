@@ -153,7 +153,7 @@ angular.module('myApp')
       ],
     ];
 
-    this.outPort = { bus: null, busName: null };
+    this.outPort = { bus: null, busName: null, portId: null };
   }
 
   ConstantXmitter.prototype.clear = function () {
@@ -182,6 +182,7 @@ angular.module('myApp')
   ConstantXmitter.prototype.connectDataOut = function (bus) {
     this.outPort.bus     = bus;
     this.outPort.busName = bus.name;
+    this.outPort.portId  = this.panelId + "-" + bus.name;
   };
 
   ConstantXmitter.prototype.getDigits = function (rowIdx, part) {

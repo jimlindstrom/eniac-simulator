@@ -67,10 +67,12 @@ angular.module('myApp')
   };
 
   Accumulator.prototype.connectDataIn = function (inName, bus) {
+    var that=this;
     angular.forEach(this.digitalInputs, function (digitalIn, idx) {
       if (digitalIn.name == inName) {
         digitalIn.bus = bus;
         digitalIn.busName = bus.name;
+        digitalIn.portId  = that.panelId + "-" + bus.name;
       }
     });
   };
@@ -81,6 +83,7 @@ angular.module('myApp')
       if (digitalOut.name == outName) {
         digitalOut.bus = bus;
         digitalOut.busName = bus.name;
+        digitalOut.portId  = that.panelId + "-" + bus.name;
       }
     });
   };

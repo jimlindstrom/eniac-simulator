@@ -5,10 +5,10 @@ High Prio
 ---
 - Create fixed overlaying, mini-map showing which units are active. & acc contents & cycle?
 - Better label/style the debugger panes
-- Use use wires for bus connections
 
 Med
 ---
+- Hover over control ports to see: (1) tooltip with name, (2) highlight relevant knobs
 - Write test harness for TestPrograms (chain all the tests? make them a view called 'tests'?)
 - Fix bug in wiring Accumulator non-repeating units. and modify both test programs accordingly.
 - Multiplier Unit

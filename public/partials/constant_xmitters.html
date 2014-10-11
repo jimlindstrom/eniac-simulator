@@ -5,12 +5,12 @@
       <br />
     </div>
    
-    <div class="subpanel data-buses" ng-include src="'partials/data_buses.html'">
+    <div ng-repeat="panel_id in [xmitter.panelId]" class="subpanel data-buses" ng-include src="'partials/data_buses.html'">
     </div>
 
     <div class="subpanel panel-controls">
-      <div style="width:100%; text-align: center; padding-bottom:4px;"><!-- FIXME -->
-        <div class="plug control-8">{{xmitter.outPort.busName || "--"}}</div>
+      <div class="data-bus" style="background-color:inherit;">
+        <div data-dest-id="{{xmitter.outPort.portId}}" class="horiz-connector" ng-include src="'partials/horiz_data_bus_inner.html'"></div>
       </div>
 
       <div class="control-row" ng-repeat="xmitter_ctrl_pair_arr in xmitter.xmitter_ctrl_pair_arrays">
@@ -26,8 +26,8 @@
       <div class="control-row">
         <div class="control-io-row" ng-repeat="xmitter_ctrl_pair_arr in xmitter.xmitter_ctrl_pair_arrays">
           <div class="control-10 control-io-pair" ng-repeat="xmitter_ctrl_pair in xmitter_ctrl_pair_arr">
-            <div class="two-control-io-left"><div class="htfix"></div><div class="circled-content" data-dest-id="{{xmitter_ctrl_pair.inPort.portId}}">{{xmitter_ctrl_pair.inPort.busName || "&bull;"}}</div></div>
-            <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content" data-dest-id="{{xmitter_ctrl_pair.outPort.portId}}">{{xmitter_ctrl_pair.outPort.busName || "&bull;"}}</div></div>
+            <div class="two-control-io-left"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{xmitter_ctrl_pair.inPort.portId}}">{{xmitter_ctrl_pair.inPort.busName || "&bull;"}}</div></div>
+            <div class="two-control-io-right"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{xmitter_ctrl_pair.outPort.portId}}">{{xmitter_ctrl_pair.outPort.busName || "&bull;"}}</div></div>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
       </div>
     </div>
    
-    <div class="subpanel data-buses" ng-include src="'partials/data_buses.html'">
+    <div ng-repeat="panel_id in [xmitter.panelId]" class="subpanel data-buses" ng-include src="'partials/data_buses.html'">
     </div>
      
     <div class="subpanel panel-controls">

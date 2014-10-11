@@ -31,10 +31,48 @@ angular.module('myApp')
     return Math.atan(opp/adj)*180/Math.PI;
   }
 
-  function draw_wire_node(point) {
-    var style = "top:  "+(point.y-6)+"px;" +
+  function draw_horiz_data_plug(point) {
+    var width  = 48;
+    var height = 17;
+
+    var outer_style = "position: absolute;" +
+                      "top:  "+(point.y)+"px;" +
+                      "left: "+(point.x)+"px;";
+    var inner_style = "margin-left: -"+(width /2)+"px;" +
+                      "margin-top:  -"+(height/2)+"px;" +
+                      "width:  "+width +"px;" +
+                      "height: "+height+"px;" +
+                      "background-color: #444;";
+    var html =        "<div class=\"data-plug-outer\" style=\""+outer_style+"\">" +
+                      "<div class=\"data-plug-inner\" style=\""+inner_style+"\">" +
+                      "</div></div>";
+
+    angular.element(document.body).append(html);
+  }
+
+  function draw_vert_data_plug(point) {
+    var width  = 17;
+    var height = 48;
+
+    var outer_style = "position: absolute;" +
+                      "top:  "+(point.y)+"px;" +
+                      "left: "+(point.x)+"px;";
+    var inner_style = "margin-left: -"+(width /2)+"px;" +
+                      "margin-top:  -"+(height/2)+"px;" +
+                      "width:  "+width +"px;" +
+                      "height: "+height+"px;" +
+                      "background-color: #444;";
+    var html =        "<div class=\"data-plug-outer\" style=\""+outer_style+"\">" +
+                      "<div class=\"data-plug-inner\" style=\""+inner_style+"\">" +
+                      "</div></div>";
+
+    angular.element(document.body).append(html);
+  }
+
+  function draw_control_plug(point) {
+    var style = "top:  "+(point.y-4)+"px;" +
                 "left: "+(point.x-4)+"px;";
-    var html = "<div class=\"control-wire-node\" style=\""+style+"\"></div>";
+    var html = "<div class=\"control-plug\" style=\""+style+"\"></div>";
     angular.element(document.body).append(html);
   }
 
@@ -57,13 +95,31 @@ angular.module('myApp')
     angular.element(document.body).append(html);
   }
 
-  Wiring.draw_connection = function (elem1, elem2) {
+  Wiring.draw_horiz_data_connection = function (elem1, elem2) {
     var pt1 = elem_bbox_center(elem1);
     var pt2 = elem_bbox_center(elem2);
 
+    draw_horiz_data_plug(pt1);
+    draw_horiz_data_plug(pt2);
     draw_wire_line(pt1, pt2);
-    draw_wire_node(pt1);
-    draw_wire_node(pt2);
+  }
+
+  Wiring.draw_vert_data_connection = function (elem1, elem2) {
+    var pt1 = elem_bbox_center(elem1);
+    var pt2 = elem_bbox_center(elem2);
+
+    draw_vert_data_plug(pt1);
+    draw_horiz_data_plug(pt2);
+    draw_wire_line(pt1, pt2);
+  }
+
+  Wiring.draw_control_connection = function (elem1, elem2) {
+    var pt1 = elem_bbox_center(elem1);
+    var pt2 = elem_bbox_center(elem2);
+
+    draw_control_plug(pt1);
+    draw_control_plug(pt2);
+    draw_wire_line(pt1, pt2);
   }
 
   Wiring.destroy_connections = function () {
@@ -72,7 +128,12 @@ angular.module('myApp')
       elems[i].parentNode.removeChild(elems[i]);
     }
 
-    var elems = document.getElementsByClassName("control-wire-node");
+    var elems = document.getElementsByClassName("control-plug");
+    for (var i = elems.length - 1; i >= 0; i--) {
+      elems[i].parentNode.removeChild(elems[i]);
+    }
+
+    var elems = document.getElementsByClassName("data-plug-outer");
     for (var i = elems.length - 1; i >= 0; i--) {
       elems[i].parentNode.removeChild(elems[i]);
     }

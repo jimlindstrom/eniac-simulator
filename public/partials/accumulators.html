@@ -17,19 +17,17 @@
 
   </div>
    
-  <div class="subpanel data-buses" ng-include src="'partials/data_buses.html'">
+  <div ng-repeat="panel_id in [acc.panelId]" class="subpanel data-buses" ng-include src="'partials/data_buses.html'">
   </div>
 
   <div class="subpanel panel-controls">
     <div class="control-row">
       <div class="control-8 plug inter-plug">inter<br/>con</br>plug<br/>L1</div>
       <div class="control-10 plug digital-in" ng-repeat="digitalInput in acc.digitalInputs">
-        <div class="plug-label">{{digitalInput.name}}</div>
-        <div class="plug-bus">{{digitalInput.busName || "--"}}</div>
+        <div class="vert-connector" data-dest-id="{{digitalInput.portId}}"ng-include src="'partials/vert_data_bus_inner.html'"></div>
       </div>
       <div class="control-10 plug digital-out" ng-repeat="digitalOutput in acc.digitalOutputs">
-        <div class=plug-label">{{digitalOutput.name}}</div>
-        <div class="plug-bus">{{digitalOutput.busName || "--"}}</div>
+        <div class="vert-connector" data-dest-id="{{digitalOutput.portId}}"ng-include src="'partials/vert_data_bus_inner.html'"></div>
       </div>
       <div class="control-8 plug inter-plug">inter<br/>con</br>plug<br/>R1</div>
     </div>
@@ -78,7 +76,7 @@
         <div class="control-8"></div>
         <div class="control-8"></div>
         <div class="control-8 control-io" ng-repeat="ctrl in acc.nonRepeatProgControls">
-          <div class="one-control-io"><div class="htfix"></div><div class="circled-content" data-dest-id="{{ctrl.inPort.portId}}">{{ctrl.inPort.busName || "&bull;"}}</div></div>
+          <div class="one-control-io"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{ctrl.inPort.portId}}">{{ctrl.inPort.busName || "&bull;"}}</div></div>
         </div>
         <div class="control-8"></div>
         <div class="control-8"></div>
@@ -86,8 +84,8 @@
     
       <div class="control-subrow">
         <div class="control-8 control-io-pair" ng-repeat="ctrl in acc.repeatProgControls">
-          <div class="control-8 two-control-io-left"><div class="htfix"></div><div class="circled-content" data-dest-id="{{ctrl.inPort.portId}}">{{ctrl.inPort.busName || "&bull;"}}</div></div>
-          <div class="control-8 two-control-io-right"><div class="htfix"></div><div class="circled-content" data-dest-id="{{ctrl.outPort.portId}}">{{ctrl.outPort.busName || "&bull;"}}</div></div>
+          <div class="control-8 two-control-io-left"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{ctrl.inPort.portId}}">{{ctrl.inPort.busName || "&bull;"}}</div></div>
+          <div class="control-8 two-control-io-right"><div class="htfix"></div><div class="circled-content control-connector" data-dest-id="{{ctrl.outPort.portId}}">{{ctrl.outPort.busName || "&bull;"}}</div></div>
         </div>
       </div>
     </div>
