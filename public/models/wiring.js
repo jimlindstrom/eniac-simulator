@@ -111,7 +111,7 @@ angular.module('myApp')
     draw_vert_data_plug(pt1);
     draw_horiz_data_plug(pt2);
     draw_wire_line(pt1, pt2);
-  }
+  };
 
   Wiring.draw_control_connection = function (elem1, elem2) {
     var pt1 = elem_bbox_center(elem1);
@@ -120,6 +120,63 @@ angular.module('myApp')
     draw_control_plug(pt1);
     draw_control_plug(pt2);
     draw_wire_line(pt1, pt2);
+  };
+
+  Wiring.connect_all_control_ports = function () {
+    var q = "//div[contains(@data-dest-id, '-') and contains(@class, 'control-connector')]";
+    var result = document.evaluate(q, document.documentElement, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    if (result) {
+      for (var i=0, len=result.snapshotLength; i < len; i++) {
+        var elem1 = result.snapshotItem(i);
+        var destId = elem1.dataset.destId;
+        if (destId) {
+          var elem2 = document.getElementById(destId);
+          if (elem2) {
+            Wiring.draw_control_connection(elem1, elem2);
+          }
+        }
+      }
+    }
+  };
+
+  Wiring.connect_all_vert_data_ports = function () {
+    var q = "//div[contains(@data-dest-id, '-') and contains(@class, 'horiz-connector')]";
+    var result = document.evaluate(q, document.documentElement, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    if (result) {
+      for (var i=0, len=result.snapshotLength; i < len; i++) {
+        var elem1 = result.snapshotItem(i);
+        var destId = elem1.dataset.destId;
+        if (destId) {
+          var elem2 = document.getElementById(destId);
+          if (elem2) {
+            Wiring.draw_horiz_data_connection(elem1, elem2);
+          }
+        }
+      }
+    }
+  };
+
+  Wiring.connect_all_horiz_data_ports = function () {
+   var q = "//div[contains(@data-dest-id, '-') and contains(@class, 'vert-connector')]";
+    var result = document.evaluate(q, document.documentElement, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    if (result) {
+      for (var i=0, len=result.snapshotLength; i < len; i++) {
+        var elem1 = result.snapshotItem(i);
+        var destId = elem1.dataset.destId;
+        if (destId) {
+          var elem2 = document.getElementById(destId);
+          if (elem2) {
+            Wiring.draw_vert_data_connection(elem1, elem2);
+          }
+        }
+      }
+    }
+  };
+
+  Wiring.connect_all_ports = function () {
+    Wiring.connect_all_control_ports();
+    Wiring.connect_all_horiz_data_ports();
+    Wiring.connect_all_vert_data_ports();
   }
 
   Wiring.destroy_connections = function () {
@@ -137,7 +194,7 @@ angular.module('myApp')
     for (var i = elems.length - 1; i >= 0; i--) {
       elems[i].parentNode.removeChild(elems[i]);
     }
-  }
+  };
 
   return Wiring;
 });
